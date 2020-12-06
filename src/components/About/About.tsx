@@ -39,9 +39,6 @@ const useStyles = makeStyles((theme) => ({
         transition: "filter 100ms",
         filter: "grayscale(0) saturate(2)",
       },
-      "&#docker_logo": {
-        height: 100,
-      },
       "&#mysql_logo": {
         height: 60,
       },
@@ -390,17 +387,97 @@ const About: React.FC<IAboutProps> = ({}) => {
               id={"rest_logo"}
             />
           </a>
-          <a
-            rel={"noreferrer"}
-            href={
-              "https://jestjs.io/"
-            }
-            target={"_blank"}
-          >
+          <a rel={"noreferrer"} href={"https://jestjs.io/"} target={"_blank"}>
             <img
               src={process.env.PUBLIC_URL + "/images/jest.svg"}
               alt={"jest-logo"}
               id={"jest_logo"}
+            />
+          </a>
+          <a rel={"noreferrer"} href={"https://eslint.org/"} target={"_blank"}>
+            <img
+              src={process.env.PUBLIC_URL + "/images/eslint.svg"}
+              alt={"eslint-logo"}
+              id={"eslint_logo"}
+            />
+          </a>
+          <a
+            rel={"noreferrer"}
+            href={
+              "https://docs.microsoft.com/en-us/cpp/c-language/?view=msvc-160"
+            }
+            target={"_blank"}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/images/c.svg"}
+              alt={"c-logo"}
+              id={"c_logo"}
+            />
+          </a>
+          <a
+            rel={"noreferrer"}
+            href={"https://docs.microsoft.com/en-us/cpp/?view=msvc-160"}
+            target={"_blank"}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/images/c++.svg"}
+              alt={"c++-logo"}
+              id={"c++_logo"}
+            />
+          </a>
+          <a
+            rel={"noreferrer"}
+            href={"https://www.unrealengine.com/en-US/"}
+            target={"_blank"}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/images/ue.svg"}
+              alt={"ue-logo"}
+              id={"ue_logo"}
+            />
+          </a>
+          <a
+            rel={"noreferrer"}
+            href={"https://www.jenkins.io/"}
+            target={"_blank"}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/images/jenkins.svg"}
+              alt={"jenkins-logo"}
+              id={"jenkins_logo"}
+            />
+          </a>
+          <a
+            rel={"noreferrer"}
+            href={"https://travis-ci.org/"}
+            target={"_blank"}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/images/travis.svg"}
+              alt={"travis-logo"}
+              id={"travis_logo"}
+            />
+          </a>
+          <a
+            rel={"noreferrer"}
+            href={"https://www.influxdata.com/"}
+            target={"_blank"}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/images/influxdb.svg"}
+              alt={"influxdb-logo"}
+              id={"influxdb_logo"}
+            />
+          </a>
+          <a
+            rel={"noreferrer"}
+            href={"https://firebase.google.com/brand-guidelines"}
+            target={"_blank"}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/images/firestore.svg"}
+              alt={"firestore-logo"}
+              id={"firestore_logo"}
             />
           </a>
         </div>

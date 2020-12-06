@@ -49,18 +49,27 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "flex-start",
     marginBottom: theme.spacing(4),
   },
+  subtext: {
+    fontStyle: "italic",
+  },
+  subtextContainer: {
+    marginTop: theme.spacing(4),
+    alignSelf: "flex-start",
+  },
 }));
 
 export interface IContentCardProps {
   context: string;
   title: string | React.ReactNode;
   content: string;
+  subtext?: string | React.ReactNode;
 }
 
 const ContentCard: React.FC<IContentCardProps> = ({
   context,
   title,
   content,
+  subtext,
 }) => {
   const classes = useStyles();
   return (
@@ -78,6 +87,15 @@ const ContentCard: React.FC<IContentCardProps> = ({
           )}
         </div>
         <Typography className={classes.content}>{content}</Typography>
+        {subtext && (
+          <div className={classes.subtextContainer}>
+            {typeof title === "string" ? (
+              <Typography className={classes.subtext}>{subtext}</Typography>
+            ) : (
+              subtext
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
