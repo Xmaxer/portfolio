@@ -54,7 +54,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
       ),
       context: "This Website!",
       content:
-        "This website, build using React+TS, is a simple static website with the sole purpose of displaying all my work. Maybe I'll add a backend in the future for this, when the requirement arises.",
+        "This website, built using React+TS, is a simple static website with the sole purpose of displaying all my work. Maybe I'll add a backend in the future for this, when the requirement arises.",
     },
     {
       title: (
