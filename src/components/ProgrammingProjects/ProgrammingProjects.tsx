@@ -43,7 +43,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             </Typography>
             <Tooltip title={"Portfolio project"}>
               <IconButton
-                href={"https://github.com/Xmaxer/porttfolio"}
+                href={"https://github.com/Xmaxer/portfolio"}
                 target={"_blank"}
               >
                 <GitHub />
