@@ -390,6 +390,19 @@ const About: React.FC<IAboutProps> = ({}) => {
               id={"rest_logo"}
             />
           </a>
+          <a
+            rel={"noreferrer"}
+            href={
+              "https://jestjs.io/"
+            }
+            target={"_blank"}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/images/jest.svg"}
+              alt={"jest-logo"}
+              id={"jest_logo"}
+            />
+          </a>
         </div>
       </div>
       {cards.map((card, index) => {
