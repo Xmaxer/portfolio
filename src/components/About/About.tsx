@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ContentCard from "../ContentCard/ContentCard";
 import { Typography } from "@material-ui/core";
+import { TECHNOLOGIES } from "../../constants/constants";
 
 const useStyles = makeStyles((theme) => ({
   cardsContainer: {
@@ -13,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   technologies: {
-    height: 320,
     width: "100%",
     backgroundColor: theme.palette.secondary.light,
     display: "flex",
@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginTop: "auto",
+    textAlign: "center",
   },
 }));
 
@@ -93,6 +94,12 @@ const cards = [
       "I able to assist in teaching other students at the local CoderDojo in my school during this time, where I helped with JS/Java primarily.",
   },
   {
+    title: "Munster Programming Training",
+    context: "2014",
+    content:
+      "Attended and finished Munster Programming Training at UCC. Worked mainly with web development features (Frontend/Backend/Deployment). This was done while I was still in secondary school.",
+  },
+  {
     title: "NXT Robotics",
     context: "2012-2014",
     content:
@@ -111,375 +118,28 @@ const About: React.FC<IAboutProps> = ({}) => {
         <Typography variant={"h4"} className={classes.title}>
           {"Technologies I've worked with at one point or another"}
         </Typography>
+
         <div className={classes.logos}>
-          <a
-            rel={"noreferrer"}
-            href={"https://aws.amazon.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/aws.svg"}
-              alt={"aws-logo"}
-              id={"aws_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.adobe.com/ie/products/xd.html"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/adobe_xd.svg"}
-              alt={"adobe-xd-logo"}
-              id={"adobe_xd"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.arduino.cc/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/arduino.svg"}
-              alt={"arduino-logo"}
-              id={"arduino_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.docker.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/docker.svg"}
-              alt={"docker-logo"}
-              id={"docker_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.drupal.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/drupal.svg"}
-              alt={"drupal-logo"}
-              id={"drupal_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://git-scm.com/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/git.svg"}
-              alt={"git-logo"}
-              id={"git_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://grafana.com/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/grafana.svg"}
-              alt={"grafana-logo"}
-              id={"grafana_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://graphql.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/graphql.svg"}
-              alt={"graphql-logo"}
-              id={"graphql_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.java.com/en/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/java.svg"}
-              alt={"java-logo"}
-              id={"java_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.javascript.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/javascript.svg"}
-              alt={"javascript-logo"}
-              id={"javascript_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://kubernetes.io/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/kubernetes.svg"}
-              alt={"kubernetes-logo"}
-              id={"kubernetes_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.mongodb.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/mongodb.svg"}
-              alt={"mongodb-logo"}
-              id={"mongodb_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://material-ui.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/mui.svg"}
-              alt={"mui-logo"}
-              id={"mui_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.mysql.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/mysql.svg"}
-              alt={"mysql-logo"}
-              id={"mysql_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.postgresql.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/postgresql.svg"}
-              alt={"postgresql-logo"}
-              id={"postgresql_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://prometheus.io/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/prometheus.svg"}
-              alt={"prometheus-logo"}
-              id={"prometheus_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.python.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/python.svg"}
-              alt={"python-logo"}
-              id={"python_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://reactjs.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/react.svg"}
-              alt={"react-logo"}
-              id={"react_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.ruby-lang.org/en/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ruby.svg"}
-              alt={"ruby-logo"}
-              id={"ruby_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://rubyonrails.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ruby_on_rails.svg"}
-              alt={"ruby_on_rails-logo"}
-              id={"ror_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://spring.io/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/spring.svg"}
-              alt={"spring-logo"}
-              id={"spring_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.tensorflow.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/tensorflow.svg"}
-              alt={"tensorflow-logo"}
-              id={"tensorflow_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.typescriptlang.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/typescript.svg"}
-              alt={"typescript-logo"}
-              id={"ts_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://wordpress.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/wordpress.svg"}
-              alt={"wordpress-logo"}
-              id={"wp_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://grpc.io/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/grpc.svg"}
-              alt={"grpc-logo"}
-              id={"grpc_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.android.com/intl/en_ie/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/android.svg"}
-              alt={"android-logo"}
-              id={"android_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={
-              "https://en.wikipedia.org/wiki/Representational_state_transfer"
-            }
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/rest.svg"}
-              alt={"rest-logo"}
-              id={"rest_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://jestjs.io/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/jest.svg"}
-              alt={"jest-logo"}
-              id={"jest_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://eslint.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/eslint.svg"}
-              alt={"eslint-logo"}
-              id={"eslint_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={
-              "https://docs.microsoft.com/en-us/cpp/c-language/?view=msvc-160"
-            }
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/c.svg"}
-              alt={"c-logo"}
-              id={"c_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://docs.microsoft.com/en-us/cpp/?view=msvc-160"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/c++.svg"}
-              alt={"c++-logo"}
-              id={"c++_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.unrealengine.com/en-US/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ue.svg"}
-              alt={"ue-logo"}
-              id={"ue_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.jenkins.io/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/jenkins.svg"}
-              alt={"jenkins-logo"}
-              id={"jenkins_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://travis-ci.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/travis.svg"}
-              alt={"travis-logo"}
-              id={"travis_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.influxdata.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/influxdb.svg"}
-              alt={"influxdb-logo"}
-              id={"influxdb_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://firebase.google.com/brand-guidelines"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/firestore.svg"}
-              alt={"firestore-logo"}
-              id={"firestore_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       </div>
       {cards.map((card, index) => {

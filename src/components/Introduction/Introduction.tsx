@@ -42,6 +42,9 @@ const useStyles = makeStyles<Theme, IMakeStylesProps>((theme) => ({
   bottom: {},
   name: {
     textTransform: "uppercase",
+    [theme.breakpoints.down("md")]: {
+      fontSize: 36,
+    },
     fontSize: 64,
     color: "white",
     fontWeight: "bold",
@@ -70,6 +73,9 @@ const useStyles = makeStyles<Theme, IMakeStylesProps>((theme) => ({
     marginLeft: "auto",
     marginRight: "auto",
     top: 60 + 96 - 1,
+    [theme.breakpoints.down("md")]: {
+      top: 60 + 54 - 1,
+    },
     position: "sticky",
     backgroundColor: theme.palette.secondary.dark,
     borderWidth: 2,

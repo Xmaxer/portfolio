@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { IconButton, Tooltip, Typography } from "@material-ui/core";
 import { GitHub, Language } from "@material-ui/icons";
 import ContentCard from "../ContentCard/ContentCard";
+import { TECHNOLOGIES } from "../../constants/constants";
 
 const useStyles = makeStyles((theme) => ({
   cardsContainer: {
@@ -86,54 +87,30 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardSubtext}>
             Technologies Used:
           </Typography>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.typescriptlang.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/typescript.svg"}
-              alt={"typescript-logo"}
-              id={"ts_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.javascript.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/javascript.svg"}
-              alt={"javascript-logo"}
-              id={"javascript_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://reactjs.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/react.svg"}
-              alt={"react-logo"}
-              id={"react_logo"}
-            />
-          </a>
-
-          <a rel={"noreferrer"} href={"https://eslint.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/eslint.svg"}
-              alt={"eslint-logo"}
-              id={"eslint_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://material-ui.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/mui.svg"}
-              alt={"mui-logo"}
-              id={"mui_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.filter((technology) =>
+            ["typescript", "javascript", "react", "eslint", "mui"].includes(
+              technology.id
+            )
+          ).map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       ),
     },
@@ -166,61 +143,35 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardSubtext}>
             Technologies Used:
           </Typography>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.typescriptlang.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/typescript.svg"}
-              alt={"typescript-logo"}
-              id={"ts_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.javascript.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/javascript.svg"}
-              alt={"javascript-logo"}
-              id={"javascript_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://reactjs.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/react.svg"}
-              alt={"react-logo"}
-              id={"react_logo"}
-            />
-          </a>
-
-          <a rel={"noreferrer"} href={"https://eslint.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/eslint.svg"}
-              alt={"eslint-logo"}
-              id={"eslint_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://material-ui.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/mui.svg"}
-              alt={"mui-logo"}
-              id={"mui_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://jestjs.io/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/jest.svg"}
-              alt={"jest-logo"}
-              id={"jest_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.filter((technology) =>
+            [
+              "typescript",
+              "javascript",
+              "react",
+              "eslint",
+              "mui",
+              "jest",
+            ].includes(technology.id)
+          ).map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       ),
     },
@@ -263,112 +214,40 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardSubtext}>
             Technologies Used:
           </Typography>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.typescriptlang.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/typescript.svg"}
-              alt={"typescript-logo"}
-              id={"ts_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.javascript.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/javascript.svg"}
-              alt={"javascript-logo"}
-              id={"javascript_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://reactjs.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/react.svg"}
-              alt={"react-logo"}
-              id={"react_logo"}
-            />
-          </a>
-
-          <a rel={"noreferrer"} href={"https://eslint.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/eslint.svg"}
-              alt={"eslint-logo"}
-              id={"eslint_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://material-ui.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/mui.svg"}
-              alt={"mui-logo"}
-              id={"mui_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://jestjs.io/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/jest.svg"}
-              alt={"jest-logo"}
-              id={"jest_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.ruby-lang.org/en/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ruby.svg"}
-              alt={"ruby-logo"}
-              id={"ruby_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://rubyonrails.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ruby_on_rails.svg"}
-              alt={"ruby_on_rails-logo"}
-              id={"ror_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://graphql.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/graphql.svg"}
-              alt={"graphql-logo"}
-              id={"graphql_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://travis-ci.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/travis.svg"}
-              alt={"travis-logo"}
-              id={"travis_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.postgresql.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/postgresql.svg"}
-              alt={"postgresql-logo"}
-              id={"postgresql_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.filter((technology) =>
+            [
+              "typescript",
+              "javascript",
+              "react",
+              "eslint",
+              "mui",
+              "jest",
+              "ruby",
+              "rubyonrails",
+              "graphql",
+              "travis",
+              "postgresql",
+            ].includes(technology.id)
+          ).map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       ),
     },
@@ -430,152 +309,44 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardSubtext}>
             Technologies Used:
           </Typography>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.javascript.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/javascript.svg"}
-              alt={"javascript-logo"}
-              id={"javascript_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://reactjs.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/react.svg"}
-              alt={"react-logo"}
-              id={"react_logo"}
-            />
-          </a>
-
-          <a rel={"noreferrer"} href={"https://eslint.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/eslint.svg"}
-              alt={"eslint-logo"}
-              id={"eslint_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://material-ui.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/mui.svg"}
-              alt={"mui-logo"}
-              id={"mui_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.ruby-lang.org/en/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ruby.svg"}
-              alt={"ruby-logo"}
-              id={"ruby_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://rubyonrails.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ruby_on_rails.svg"}
-              alt={"ruby_on_rails-logo"}
-              id={"ror_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://graphql.org/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/graphql.svg"}
-              alt={"graphql-logo"}
-              id={"graphql_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.tensorflow.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/tensorflow.svg"}
-              alt={"tensorflow-logo"}
-              id={"tensorflow_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.python.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/python.svg"}
-              alt={"python-logo"}
-              id={"python_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.postgresql.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/postgresql.svg"}
-              alt={"postgresql-logo"}
-              id={"postgresql_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://prometheus.io/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/prometheus.svg"}
-              alt={"prometheus-logo"}
-              id={"prometheus_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.influxdata.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/influxdb.svg"}
-              alt={"influxdb-logo"}
-              id={"influxdb_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://grafana.com/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/grafana.svg"}
-              alt={"grafana-logo"}
-              id={"grafana_logo"}
-            />
-          </a>
-          <a rel={"noreferrer"} href={"https://grpc.io/"} target={"_blank"}>
-            <img
-              src={process.env.PUBLIC_URL + "/images/grpc.svg"}
-              alt={"grpc-logo"}
-              id={"grpc_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.docker.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/docker.svg"}
-              alt={"docker-logo"}
-              id={"docker_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.filter((technology) =>
+            [
+              "javascript",
+              "react",
+              "eslint",
+              "mui",
+              "ruby",
+              "rubyonrails",
+              "graphql",
+              "tensorflow",
+              "python",
+              "postgresql",
+              "prometheus",
+              "influxdb",
+              "grafana",
+              "docker",
+              "grpc",
+            ].includes(technology.id)
+          ).map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       ),
     },
@@ -605,28 +376,28 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardSubtext}>
             Technologies Used:
           </Typography>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.unrealengine.com/en-US/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ue.svg"}
-              alt={"ue-logo"}
-              id={"ue_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://docs.microsoft.com/en-us/cpp/?view=msvc-160"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/c++.svg"}
-              alt={"c++-logo"}
-              id={"c++_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.filter((technology) =>
+            ["ue", "c++"].includes(technology.id)
+          ).map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       ),
     },
@@ -676,107 +447,39 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardSubtext}>
             Technologies Used:
           </Typography>
-          <a
-            rel={"noreferrer"}
-            href={
-              "https://docs.microsoft.com/en-us/cpp/c-language/?view=msvc-160"
-            }
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/c.svg"}
-              alt={"c-logo"}
-              id={"c_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.arduino.cc/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/arduino.svg"}
-              alt={"arduino-logo"}
-              id={"arduino_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.android.com/intl/en_ie/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/android.svg"}
-              alt={"android-logo"}
-              id={"android_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.java.com/en/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/java.svg"}
-              alt={"java-logo"}
-              id={"java_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.ruby-lang.org/en/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ruby.svg"}
-              alt={"ruby-logo"}
-              id={"ruby_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://rubyonrails.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/ruby_on_rails.svg"}
-              alt={"ruby_on_rails-logo"}
-              id={"ror_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.javascript.com/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/javascript.svg"}
-              alt={"javascript-logo"}
-              id={"javascript_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://firebase.google.com/brand-guidelines"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/firestore.svg"}
-              alt={"firestore-logo"}
-              id={"firestore_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.postgresql.org/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/postgresql.svg"}
-              alt={"postgresql-logo"}
-              id={"postgresql_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.filter((technology) =>
+            [
+              "c",
+              "arduino",
+              "android",
+              "androidstudio",
+              "java",
+              "ruby",
+              "rubyonrails",
+              "javascript",
+              "firestore",
+              "postgresql",
+            ].includes(technology.id)
+          ).map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       ),
     },
@@ -806,17 +509,28 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardSubtext}>
             Technologies Used:
           </Typography>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.java.com/en/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/java.svg"}
-              alt={"java-logo"}
-              id={"java_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.filter((technology) =>
+            ["java"].includes(technology.id)
+          ).map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       ),
     },
@@ -846,30 +560,28 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardSubtext}>
             Technologies Used:
           </Typography>
-          <a
-            rel={"noreferrer"}
-            href={"https://www.java.com/en/"}
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/java.svg"}
-              alt={"java-logo"}
-              id={"java_logo"}
-            />
-          </a>
-          <a
-            rel={"noreferrer"}
-            href={
-              "https://en.wikipedia.org/wiki/Representational_state_transfer"
-            }
-            target={"_blank"}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/images/rest.svg"}
-              alt={"rest-logo"}
-              id={"rest_logo"}
-            />
-          </a>
+          {TECHNOLOGIES.filter((technology) =>
+            ["java", "rest"].includes(technology.id)
+          ).map((technology, index) => {
+            return (
+              <a
+                key={`technology-${index}`}
+                rel={"noreferrer"}
+                href={technology.link}
+                target={"_blank"}
+              >
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "/images/" + technology.filename
+                  }
+                  alt={technology.title}
+                  id={`${technology.title
+                    .toLowerCase()
+                    .replaceAll(" ", "_")}_logo`}
+                />
+              </a>
+            );
+          })}
         </div>
       ),
     },
