@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ContentCard from "../ContentCard/ContentCard";
-import { Typography } from "@material-ui/core";
+import { Tooltip, Typography } from "@material-ui/core";
 import { TECHNOLOGIES } from "../../constants/constants";
 
 const useStyles = makeStyles((theme) => ({
@@ -122,22 +122,19 @@ const About: React.FC<IAboutProps> = ({}) => {
         <div className={classes.logos}>
           {TECHNOLOGIES.map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>

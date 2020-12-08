@@ -93,22 +93,19 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             )
           ).map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>
@@ -154,22 +151,19 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             ].includes(technology.id)
           ).map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>
@@ -230,22 +224,19 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             ].includes(technology.id)
           ).map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>
@@ -329,22 +320,19 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             ].includes(technology.id)
           ).map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>
@@ -380,22 +368,19 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             ["ue", "c++"].includes(technology.id)
           ).map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>
@@ -462,22 +447,19 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             ].includes(technology.id)
           ).map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>
@@ -513,22 +495,19 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             ["java"].includes(technology.id)
           ).map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>
@@ -564,22 +543,19 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
             ["java", "rest"].includes(technology.id)
           ).map((technology, index) => {
             return (
-              <a
-                key={`technology-${index}`}
-                rel={"noreferrer"}
-                href={technology.link}
-                target={"_blank"}
-              >
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "/images/" + technology.filename
-                  }
-                  alt={technology.title}
-                  id={`${technology.title
-                    .toLowerCase()
-                    .replaceAll(" ", "_")}_logo`}
-                />
-              </a>
+              <Tooltip title={technology.title} key={`technology-${index}`}>
+                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/images/" + technology.filename
+                    }
+                    alt={technology.title}
+                    id={`${technology.title
+                      .toLowerCase()
+                      .replaceAll(" ", "_")}_logo`}
+                  />
+                </a>
+              </Tooltip>
             );
           })}
         </div>
