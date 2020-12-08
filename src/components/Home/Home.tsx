@@ -1,4 +1,4 @@
-import React, { RefObject, useContext, useRef } from "react";
+import React, { RefObject, useContext, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { ParallaxContext } from "../../state/ParallaxContext";
 import Introduction from "../Introduction/Introduction";
@@ -6,6 +6,7 @@ import Content from "../Content/Content";
 import Header from "../Header/Header";
 import useTabContext from "../../contexts/useTabContext";
 import { TabContext } from "../../contexts/TabContext";
+import { trackAction } from "../../tracker";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,11 +27,16 @@ const Home: React.FC<IHomeProps> = ({}) => {
   const rootRef: RefObject<HTMLDivElement> | null = useRef(null);
   const tabContext = useTabContext();
 
+  const trackScrollPosition = (position: number) => {
+    setPosition(position);
+    trackAction("Page position", "scroll action", position, true);
+  };
+
   return (
     <TabContext.Provider value={tabContext}>
       <div
         className={classes.root}
-        onScroll={(e) => setPosition(e.currentTarget.scrollTop)}
+        onScroll={(e) => trackScrollPosition(e.currentTarget.scrollTop)}
         ref={rootRef}
         id={"home"}
       >

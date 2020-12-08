@@ -4,6 +4,7 @@ import { IconButton, Tooltip, Typography } from "@material-ui/core";
 import { GitHub, Language } from "@material-ui/icons";
 import ContentCard from "../ContentCard/ContentCard";
 import { TECHNOLOGIES } from "../../constants/constants";
+import { trackAction } from "../../tracker";
 
 const useStyles = makeStyles((theme) => ({
   cardsContainer: {
@@ -59,6 +60,10 @@ export interface IProgrammingProjectsProps {}
 const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
   const classes = useStyles();
 
+  const trackClick = (action: string) => {
+    trackAction("Programming project viewing", action);
+  };
+
   const cards = [
     {
       title: (
@@ -72,6 +77,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/portfolio"}
                 target={"_blank"}
+                onClick={() => trackClick("Portfolio project click")}
               >
                 <GitHub />
               </IconButton>
@@ -125,6 +131,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
                   "https://github.com/Xmaxer/common-components/tree/develop"
                 }
                 target={"_blank"}
+                onClick={() => trackClick("Common components project click")}
               >
                 <GitHub />
               </IconButton>
@@ -183,6 +190,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
                   "https://github.com/Xmaxer/os-society-app/tree/competitions"
                 }
                 target={"_blank"}
+                onClick={() => trackClick("OS Society frontend project click")}
               >
                 <GitHub />
               </IconButton>
@@ -193,6 +201,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
                   "https://github.com/Xmaxer/os-society-api/tree/competitions"
                 }
                 target={"_blank"}
+                onClick={() => trackClick("OS Society backend project click")}
               >
                 <GitHub />
               </IconButton>
@@ -253,6 +262,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/pm_app"}
                 target={"_blank"}
+                onClick={() => trackClick("FYP frontend project click")}
               >
                 <GitHub />
               </IconButton>
@@ -261,6 +271,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/pm_app_api"}
                 target={"_blank"}
+                onClick={() => trackClick("FYP backend project click")}
               >
                 <GitHub />
               </IconButton>
@@ -269,6 +280,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/pm_app_grpc_server"}
                 target={"_blank"}
+                onClick={() => trackClick("FYP gRPC project click")}
               >
                 <GitHub />
               </IconButton>
@@ -277,6 +289,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/pm_app_docker"}
                 target={"_blank"}
+                onClick={() => trackClick("FYP docker config projects click")}
               >
                 <GitHub />
               </IconButton>
@@ -285,6 +298,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/pm_app_grpc_protos"}
                 target={"_blank"}
+                onClick={() => trackClick("FYP gRPC protos project click")}
               >
                 <GitHub />
               </IconButton>
@@ -349,6 +363,9 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://xmaxer.itch.io/infinity"}
                 target={"_blank"}
+                onClick={() =>
+                  trackClick("GameJam 2020.2 (Infinity) project click")
+                }
               >
                 <Language />
               </IconButton>
@@ -399,6 +416,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
                   "https://github.com/Xmaxer/TransportAI-Web/tree/development"
                 }
                 target={"_blank"}
+                onClick={() => trackClick("Transport-AI web app project click")}
               >
                 <GitHub />
               </IconButton>
@@ -409,6 +427,9 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
                   "https://github.com/Xmaxer/TransportAI-App/tree/development"
                 }
                 target={"_blank"}
+                onClick={() =>
+                  trackClick("Transport-AI mobile app project click")
+                }
               >
                 <GitHub />
               </IconButton>
@@ -417,6 +438,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/transportAI-Arduino"}
                 target={"_blank"}
+                onClick={() => trackClick("Transport-AI arduino project click")}
               >
                 <GitHub />
               </IconButton>
@@ -476,6 +498,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/OSSBot"}
                 target={"_blank"}
+                onClick={() => trackClick("OSSBot project click")}
               >
                 <GitHub />
               </IconButton>
@@ -524,6 +547,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
               <IconButton
                 href={"https://github.com/Xmaxer/Flight-Booking-App"}
                 target={"_blank"}
+                onClick={() => trackClick("Flight booking app project click")}
               >
                 <GitHub />
               </IconButton>

@@ -3,6 +3,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 import { IconButton, Typography } from "@material-ui/core";
 import { ParallaxContext } from "../../state/ParallaxContext";
 import { Email, GitHub, LinkedIn } from "@material-ui/icons";
+import { trackAction } from "../../tracker";
 
 export interface IMakeStylesProps {
   position: number;
@@ -97,6 +98,11 @@ export interface IHeaderProps {}
 const Introduction: React.FC<IHeaderProps> = () => {
   const { position } = useContext(ParallaxContext);
   const classes = useStyles({ position });
+
+  const trackClick = (action: string) => {
+    trackAction("Personal Links", action);
+  };
+
   return (
     <>
       <div className={classes.top}>
@@ -114,6 +120,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           className={classes.link}
           href={"https://www.linkedin.com/in/kevin-jakubauskas/"}
           target={"_blank"}
+          onClick={() => trackClick("Clicked LinkedIn profile")}
         >
           <LinkedIn />
         </IconButton>
@@ -121,6 +128,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           className={classes.link}
           href={"https://github.com/Xmaxer?tab=repositories"}
           target={"_blank"}
+          onClick={() => trackClick("Clicked GitHub repositories")}
         >
           <GitHub />
         </IconButton>
@@ -128,6 +136,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           className={classes.link}
           href={"mailto:contactkevinjakubauskas@gmail.com"}
           target={"_blank"}
+          onClick={() => trackClick("Clicked email link")}
         >
           <Email />
         </IconButton>
