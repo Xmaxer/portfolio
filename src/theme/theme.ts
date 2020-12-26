@@ -72,7 +72,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ["Roboto", "Arial"].join(","),
+    fontFamily: ["Montserrat", "Roboto", "sans-serif"].join(","),
   },
 });
 

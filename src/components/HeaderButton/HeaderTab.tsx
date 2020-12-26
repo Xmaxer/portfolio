@@ -6,11 +6,11 @@ const HeaderTab = withStyles((theme) => ({
   root: {
     fontSize: 25,
     [theme.breakpoints.down("md")]: {
-      fontSize: 18,
+      fontSize: "3vw",
     },
     backgroundColor: "transparent",
     maxWidth: "inherit",
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.light,
     minWidth: "inherit",
     minHeight: "inherit",
   },

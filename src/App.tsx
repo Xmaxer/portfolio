@@ -5,6 +5,7 @@ import AppRouter from "./AppRouter";
 import { ParallaxContext } from "./state/ParallaxContext";
 import useParallaxContext from "./state/useParallaxContext";
 import ReactGA from "react-ga";
+import "./App.css";
 
 function App() {
   const parallaxContext = useParallaxContext();

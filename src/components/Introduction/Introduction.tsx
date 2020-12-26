@@ -39,6 +39,9 @@ const useStyles = makeStyles<Theme, IMakeStylesProps>((theme) => ({
     justifyContent: "center",
     backgroundColor: theme.palette.secondary.dark,
     zIndex: 100,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 0,
+    },
   },
   bottom: {},
   name: {
@@ -46,9 +49,16 @@ const useStyles = makeStyles<Theme, IMakeStylesProps>((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: 36,
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 24,
+    },
     fontSize: 64,
     color: "white",
     fontWeight: "bold",
+    textAlign: "center",
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
   },
   bodyText: {
     fontSize: ({ position }) => {
@@ -76,6 +86,9 @@ const useStyles = makeStyles<Theme, IMakeStylesProps>((theme) => ({
     top: 60 + 96 - 1,
     [theme.breakpoints.down("md")]: {
       top: 60 + 54 - 1,
+    },
+    [theme.breakpoints.down("sm")]: {
+      top: 60 + 36 - 2,
     },
     position: "sticky",
     backgroundColor: theme.palette.secondary.dark,

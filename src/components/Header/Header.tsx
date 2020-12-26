@@ -1,9 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import HeaderTab from "../HeaderButton/HeaderTab";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useMediaQuery } from "@material-ui/core";
+import Drawer from "./Drawer/Drawer";
+import Tabs from "./Tabs/Tabs";
 import { TabContext } from "../../contexts/TabContext";
-import HeaderTabs from "../HeaderTabs/HeaderTabs";
 import { useHistory } from "react-router";
+import { Code, GraphicEq, Person } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,26 +20,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+export const headerItems = [
+  {
+    label: "About me",
+    href: "#about",
+    icon: <Person />,
+  },
+  {
+    label: "Programming Projects",
+    href: "#programming",
+    icon: <Code />,
+  },
+  {
+    label: "3D Projects",
+    href: "#gfx",
+    icon: <GraphicEq />,
+  },
+];
+
 export interface IHeaderProps {}
 
 const Header: React.FC<IHeaderProps> = ({}) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const smallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const { setSelected, selected } = useContext(TabContext);
   const history = useHistory();
-
-  const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-    setSelected(newValue);
-    let anchor = "about";
-    switch (newValue) {
-      case 1:
-        anchor = "programming";
-        break;
-      case 2:
-        anchor = "gfx";
-        break;
-    }
-    history.push(`${history.location.pathname}#${anchor}`);
-  };
 
   useEffect(() => {
     let anchor = history.location.hash;
@@ -59,13 +67,27 @@ const Header: React.FC<IHeaderProps> = ({}) => {
     }
   }, [history.location.hash, setSelected]);
 
+  const onChangeHandler = (newValue: number) => {
+    setSelected(newValue);
+    let anchor = "about";
+    switch (newValue) {
+      case 1:
+        anchor = "programming";
+        break;
+      case 2:
+        anchor = "gfx";
+        break;
+    }
+    history.push(`${history.location.pathname}#${anchor}`);
+  };
+
   return (
     <div className={classes.root}>
-      <HeaderTabs onChange={handleTabChange} value={selected}>
-        <HeaderTab autoCapitalize={"true"} label={"About me"} />
-        <HeaderTab autoCapitalize={"true"} label={"Programming Projects"} />
-        <HeaderTab autoCapitalize={"true"} label={"3D Projects"} />
-      </HeaderTabs>
+      {smallScreen ? (
+        <Drawer onChange={onChangeHandler} selected={selected} />
+      ) : (
+        <Tabs onChange={onChangeHandler} selected={selected} />
+      )}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ContentCard from "../ContentCard/ContentCard";
-import { Tooltip, Typography } from "@material-ui/core";
+import { Divider, Tooltip, Typography } from "@material-ui/core";
 import { TECHNOLOGIES } from "../../constants/constants";
 
 const useStyles = makeStyles((theme) => ({
@@ -53,6 +53,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: "auto",
     textAlign: "center",
+  },
+  divider: {
+    width: "80%",
+    borderColor: theme.palette.secondary.dark,
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    borderWidth: 1,
   },
 }));
 
@@ -118,7 +125,7 @@ const About: React.FC<IAboutProps> = ({}) => {
         <Typography variant={"h4"} className={classes.title}>
           {"Technologies I've worked with at one point or another"}
         </Typography>
-
+        <Divider className={classes.divider} />
         <div className={classes.logos}>
           {TECHNOLOGIES.map((technology, index) => {
             return (
