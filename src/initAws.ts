@@ -1,5 +1,5 @@
 import AWS from "aws-sdk";
-import {FULL_SIZE_BUCKET, THUMBNAIL_BUCKET} from "./constants/constants";
+import { FULL_SIZE_BUCKET, THUMBNAIL_BUCKET } from "./constants/constants";
 
 export class AwsConfig {
   static initialised = false;

@@ -19,7 +19,7 @@ export const PROJECTS_3D: IProjectType[] = [
 ];
 
 export interface IProjectType {
-    name: string;
-    description?: string;
-    images: string[]
+  name: string;
+  description?: string;
+  images: string[];
 }

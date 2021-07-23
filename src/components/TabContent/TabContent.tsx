@@ -1,6 +1,6 @@
-import React, {useContext} from "react";
-import {makeStyles} from "@material-ui/core/styles";
-import {TabContext} from "../../contexts/TabContext";
+import React, { useContext } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { TabContext } from "../../contexts/TabContext";
 
 const useStyles = makeStyles((theme) => ({}));
 

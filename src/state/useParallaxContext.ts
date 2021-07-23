@@ -1,5 +1,8 @@
-import {DEFAULT_PARALLAX_CONTEXT_VALUE, IParallaxContext,} from "./ParallaxContext";
-import {useState} from "react";
+import {
+  DEFAULT_PARALLAX_CONTEXT_VALUE,
+  IParallaxContext,
+} from "./ParallaxContext";
+import { useState } from "react";
 
 const useParallaxContext = (): IParallaxContext => {
   const [position, setPosition] = useState(

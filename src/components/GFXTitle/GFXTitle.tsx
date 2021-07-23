@@ -1,7 +1,7 @@
 import React from "react";
-import {IGFXTitleProps} from "./interfaces";
-import {makeStyles} from "@material-ui/core/styles";
-import {Typography} from "@material-ui/core";
+import { IGFXTitleProps } from "./interfaces";
+import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
 
 export const useGFXTitleStyles = makeStyles(() => ({
   title: {

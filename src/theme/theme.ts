@@ -1,6 +1,6 @@
-import {createMuiTheme} from "@material-ui/core/styles";
-import {PaletteColorOptions} from "@material-ui/core";
-import {PaletteColor} from "@material-ui/core/styles/createPalette";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { PaletteColorOptions } from "@material-ui/core";
+import { PaletteColor } from "@material-ui/core/styles/createPalette";
 
 const palette = {
   primary: {

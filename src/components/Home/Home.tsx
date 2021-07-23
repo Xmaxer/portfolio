@@ -1,12 +1,12 @@
-import React, {RefObject, useCallback, useContext, useRef} from "react";
-import {makeStyles} from "@material-ui/core/styles";
-import {ParallaxContext} from "../../state/ParallaxContext";
+import React, { RefObject, useCallback, useContext, useRef } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { ParallaxContext } from "../../state/ParallaxContext";
 import Introduction from "../Introduction/Introduction";
 import Content from "../Content/Content";
 import Header from "../Header/Header";
 import useTabContext from "../../contexts/useTabContext";
-import {TabContext} from "../../contexts/TabContext";
-import {trackAction} from "../../tracker";
+import { TabContext } from "../../contexts/TabContext";
+import { trackAction } from "../../tracker";
 
 const useStyles = makeStyles((theme) => ({
   root: {

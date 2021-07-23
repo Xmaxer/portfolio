@@ -1,3 +1,3 @@
-import {IProjectType} from "../../constants/3DProjects";
+import { IProjectType } from "../../constants/3DProjects";
 
 export interface IGFXCardProps extends IProjectType {}

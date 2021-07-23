@@ -1,10 +1,10 @@
 import React from "react";
-import {makeStyles} from "@material-ui/core/styles";
-import {IconButton, Tooltip, Typography} from "@material-ui/core";
-import {GitHub, Language} from "@material-ui/icons";
+import { makeStyles } from "@material-ui/core/styles";
+import { IconButton, Tooltip, Typography } from "@material-ui/core";
+import { GitHub, Language } from "@material-ui/icons";
 import ContentCard from "../ContentCard/ContentCard";
-import {TECHNOLOGIES} from "../../constants/technologies";
-import {trackAction} from "../../tracker";
+import { TECHNOLOGIES } from "../../constants/technologies";
+import { trackAction } from "../../tracker";
 
 const useStyles = makeStyles((theme) => ({
   cardsContainer: {
