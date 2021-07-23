@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-import { IconButton, Typography } from "@material-ui/core";
-import { ParallaxContext } from "../../state/ParallaxContext";
-import { Email, GitHub, LinkedIn } from "@material-ui/icons";
-import { trackAction } from "../../tracker";
-import { AwsConfig } from "../../initAws";
+import React, {useContext} from "react";
+import {makeStyles, Theme} from "@material-ui/core/styles";
+import {IconButton, Typography} from "@material-ui/core";
+import {ParallaxContext} from "../../state/ParallaxContext";
+import {Email, GitHub, LinkedIn} from "@material-ui/icons";
+import {trackAction} from "../../tracker";
+import {AwsConfig} from "../../initAws";
 
 export interface IMakeStylesProps {
   position: number;

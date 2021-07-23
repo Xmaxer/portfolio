@@ -1,8 +1,8 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import HeaderTabs from "../../HeaderTabs/HeaderTabs";
 import HeaderTab from "../../HeaderButton/HeaderTab";
-import { headerItems } from "../Header";
+import {headerItems} from "../Header";
 
 const useStyles = makeStyles((theme) => ({}));
 

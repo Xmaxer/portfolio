@@ -1,8 +1,8 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import ContentCard from "../ContentCard/ContentCard";
 import GFXCard from "../GFXCard/GFXCard";
-import { PROJECTS_3D } from "../../constants/3DProjects";
+import {PROJECTS_3D} from "../../constants/3DProjects";
 import GFXTitle from "../GFXTitle/GFXTitle";
 
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +71,7 @@ const GFXProjects: React.FC<IGFXProjectsProps> = ({}) => {
           <ContentCard
             key={`card-${index}`}
             title={<GFXTitle title={card.name} subtitle={card.description} />}
-            content={<GFXCard images={card.images} />}
+            content={<GFXCard {...card} />}
           />
         );
       })}

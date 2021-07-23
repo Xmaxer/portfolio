@@ -1,4 +1,4 @@
-export const PROJECTS_3D = [
+export const PROJECTS_3D: IProjectType[] = [
   {
     name: "Beretta M1935",
     description: "First few 3D gun models",
@@ -9,7 +9,6 @@ export const PROJECTS_3D = [
   },
   {
     name: "FG 42",
-    description: "",
     images: [
       "fg_42/Front_right_thumbnail_400px.png",
       "fg_42/Left_thumbnail_400px.png",
@@ -18,3 +17,9 @@ export const PROJECTS_3D = [
     ],
   },
 ];
+
+export interface IProjectType {
+    name: string;
+    description?: string;
+    images: string[]
+}

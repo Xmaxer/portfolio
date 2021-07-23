@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { useMediaQuery } from "@material-ui/core";
+import React, {useContext, useEffect} from "react";
+import {makeStyles, useTheme} from "@material-ui/core/styles";
+import {useMediaQuery} from "@material-ui/core";
 import Drawer from "./Drawer/Drawer";
 import Tabs from "./Tabs/Tabs";
-import { TabContext } from "../../contexts/TabContext";
-import { useHistory } from "react-router";
-import { Code, GraphicEq, Person } from "@material-ui/icons";
+import {TabContext} from "../../contexts/TabContext";
+import {useHistory} from "react-router";
+import {Code, GraphicEq, Person} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {

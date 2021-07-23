@@ -1,8 +1,8 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import ContentCard from "../ContentCard/ContentCard";
-import { Divider, Tooltip, Typography } from "@material-ui/core";
-import { TECHNOLOGIES } from "../../constants/technologies";
+import {Divider, Tooltip, Typography} from "@material-ui/core";
+import {TECHNOLOGIES} from "../../constants/technologies";
 
 const useStyles = makeStyles((theme) => ({
   cardsContainer: {

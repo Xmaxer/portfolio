@@ -1,6 +1,6 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { Tabs } from "@material-ui/core";
+import {withStyles} from "@material-ui/core/styles";
+import {Tabs} from "@material-ui/core";
 
 const HeaderTabs = withStyles((theme) => ({
   root: {

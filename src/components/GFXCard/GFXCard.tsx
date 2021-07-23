@@ -1,7 +1,8 @@
 import React from "react";
-import { IGFXCardProps } from "./interfaces";
-import { makeStyles } from "@material-ui/core/styles";
-import { AwsConfig } from "../../initAws";
+import {IGFXCardProps} from "./interfaces";
+import {makeStyles} from "@material-ui/core/styles";
+import {AwsConfig} from "../../initAws";
+import GFXFullPreview from "../GFXFullPreview/GFXFullPreview";
 
 export const useGraphicsCardStyles = makeStyles((theme) => ({
   root: {
@@ -45,20 +46,50 @@ export const useGraphicsCardStyles = makeStyles((theme) => ({
   },
 }));
 
-const GFXCard: React.FC<IGFXCardProps> = ({ images }) => {
+interface IOpenState {
+    open: boolean,
+    imageUrl: string,
+    title: string,
+    subtitle?: string
+}
+const GFXCard: React.FC<IGFXCardProps> = (props) => {
   const classes = useGraphicsCardStyles();
+    const [open, setOpen] = React.useState<IOpenState>({open: false, imageUrl: "", title: ""});
+
+  const onClick = (url: string, title: string, subtitle?: string) => {
+      const matches = new RegExp(/(.*)_thumbnail_.*(\..*)/, "g").exec(url)
+      if(matches && matches.length === 3) {
+          setOpen({
+              open: true,
+              title: title,
+              subtitle: subtitle,
+              imageUrl: AwsConfig.FULL_SIZE_BASE_URL + matches[1] + matches[2]
+          })
+      }
+  }
+
+  const onCloseCallback = () => {
+      setOpen({
+          ...open,
+          open: false,
+      })
+  }
 
   return (
+      <>
     <div className={classes.root}>
-      {images.map((img, index) => (
+      {props.images.map((img, index) => (
         <div className={classes.imageContainer} key={img + index}>
           <img
             className={classes.image}
             src={AwsConfig.THUMBNAIL_BASE_URL + img}
+            onClick={() => onClick(img, props.name, props.description)}
           />
         </div>
       ))}
     </div>
+          <GFXFullPreview {...open} onClose={onCloseCallback}/>
+      </>
   );
 };
 

@@ -1,3 +1,3 @@
-export interface IGFXCardProps {
-  images: string[];
-}
+import {IProjectType} from "../../constants/3DProjects";
+
+export interface IGFXCardProps extends IProjectType {}

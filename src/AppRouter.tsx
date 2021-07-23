@@ -1,7 +1,7 @@
 import React from "react";
-import { Route, Router, Switch } from "react-router-dom";
+import {Route, Router, Switch} from "react-router-dom";
 import Home from "./components/Home/Home";
-import { createBrowserHistory } from "history";
+import {createBrowserHistory} from "history";
 import ReactGA from "react-ga";
 
 const history = createBrowserHistory();

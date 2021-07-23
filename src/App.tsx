@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "@material-ui/core";
+import React, {useEffect, useState} from "react";
+import {ThemeProvider} from "@material-ui/core";
 import theme from "./theme/theme";
 import AppRouter from "./AppRouter";
-import { ParallaxContext } from "./state/ParallaxContext";
+import {ParallaxContext} from "./state/ParallaxContext";
 import useParallaxContext from "./state/useParallaxContext";
 import ReactGA from "react-ga";
 import "./App.css";
 import AWS from "aws-sdk";
-import { AwsConfig } from "./initAws";
+import {AwsConfig} from "./initAws";
 
 function App() {
   const [ready, setReady] = useState(false);

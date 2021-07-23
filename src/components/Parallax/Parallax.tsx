@@ -1,6 +1,6 @@
-import React, { useContext, useRef } from "react";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-import { ParallaxContext } from "../../state/ParallaxContext";
+import React, {useContext, useRef} from "react";
+import {makeStyles, Theme} from "@material-ui/core/styles";
+import {ParallaxContext} from "../../state/ParallaxContext";
 
 export interface IMakeStylesProps {
   position: number;

@@ -1,10 +1,10 @@
-import React, { RefObject, useEffect, useRef } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, {RefObject, useEffect, useRef} from "react";
+import {makeStyles} from "@material-ui/core/styles";
 import TabContent from "../TabContent/TabContent";
 import About from "../About/About";
 import ProgrammingProjects from "../ProgrammingProjects/ProgrammingProjects";
 import GFXProjects from "../GFXProjects/GFXProjects";
-import { useHistory } from "react-router";
+import {useHistory} from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
