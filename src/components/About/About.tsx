@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ContentCard from "../ContentCard/ContentCard";
 import { Divider, Tooltip, Typography } from "@material-ui/core";
-import { TECHNOLOGIES } from "../../constants/constants";
+import { TECHNOLOGIES } from "../../constants/technologies";
 
 const useStyles = makeStyles((theme) => ({
   cardsContainer: {
@@ -53,11 +53,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: "auto",
     textAlign: "center",
+    backgroundColor: theme.palette.tertiary.main,
+    width: "100%",
+    padding: theme.spacing(2),
   },
   divider: {
-    width: "80%",
+    width: "100%",
     borderColor: theme.palette.secondary.dark,
-    marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
     borderWidth: 1,
   },
@@ -65,19 +67,25 @@ const useStyles = makeStyles((theme) => ({
 
 const cards = [
   {
-    title: "Full time Software Engineer",
-    context: "2020",
+    title: "Full time Software Engineer @ Poppulo",
+    context: "present",
     content:
-      "Currently employed at Pilz as a full-stack software engineer, working primarily with React, Spring Boot, AWS, ElectronJS, and various other miscellaneous technologies, frameworks and database systems such as Drupal CMS, Docker, PostgreSQL and Selenium.",
+      "Currently employed at Poppulo as a full-stack software engineer. My work mostly consists of AWS infrastructure, and mobile app development (React native), as well as a monolith Java/AngularJS application.",
   },
   {
-    title: "Internship as a Software Engineer",
+    title: "Full time Software Engineer @ Pilz",
+    context: "2020-2021",
+    content:
+      "Worked in Pilz as a full-stack software engineer, working primarily with React, Spring Boot, AWS, ElectronJS, and various other miscellaneous technologies, frameworks and database systems such as Drupal CMS, Docker, PostgreSQL and Selenium.",
+  },
+  {
+    title: "Internship as a Software Engineer @ Pilz",
     context: "2019",
     content:
       "I did an 8 month internship at Pilz, where I was put on a team and worked as a full stack developer, working on frontend, backend, CI/CD and everything in-between.",
   },
   {
-    title: "BSc in Software Development",
+    title: "BSc in Software Development @ CIT",
     context: "2016-2020",
     content:
       "I studied for 4 years at the Cork Institute of Technology, where I graduated with a BSc in Software Development with First Class Honours",
@@ -86,7 +94,7 @@ const cards = [
     title: "Best math student award",
     context: "2017",
     content:
-      "Received an award which recognised me as the best match student by the Faculty of Engineering and Science at the Cork Institute and Technology",
+      "Received an award which recognised me as the best math student by the Faculty of Engineering and Science at the Cork Institute and Technology",
   },
   {
     title: "Competed in CanSat (ESA hosted event)",

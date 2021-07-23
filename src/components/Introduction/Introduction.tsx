@@ -4,6 +4,7 @@ import { IconButton, Typography } from "@material-ui/core";
 import { ParallaxContext } from "../../state/ParallaxContext";
 import { Email, GitHub, LinkedIn } from "@material-ui/icons";
 import { trackAction } from "../../tracker";
+import { AwsConfig } from "../../initAws";
 
 export interface IMakeStylesProps {
   position: number;
@@ -34,7 +35,7 @@ const useStyles = makeStyles<Theme, IMakeStylesProps>((theme) => ({
     marginBottom: theme.spacing(4),
     position: "sticky",
     top: 59,
-    marginTop: "calc(50vh - 60px - 136px)",
+    marginTop: theme.spacing(4),
     display: "flex",
     justifyContent: "center",
     backgroundColor: theme.palette.secondary.dark,
@@ -104,6 +105,46 @@ const useStyles = makeStyles<Theme, IMakeStylesProps>((theme) => ({
       textShadow: "0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black",
     },
   },
+  imageContainer: {
+    width: ({ position }) => {
+      const multiplier = normalize(position, 0, 200);
+      return 200 - 200 * multiplier;
+    },
+    height: ({ position }) => {
+      const multiplier = normalize(position, 0, 200);
+      return 200 - 200 * multiplier;
+    },
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "50%",
+    border: "3px solid " + theme.palette.primary.light,
+    overflow: "hidden",
+  },
+  image: {
+    transform: "rotate(-90deg)",
+    width: "auto",
+    height: "100%",
+  },
+  imageBlock: {
+    opacity: ({ position }) => {
+      const multiplier = normalize(position, 0, 200);
+      return 1 - multiplier;
+    },
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: theme.spacing(4),
+  },
+  bodyText1: {
+    color: theme.palette.primary.light,
+  },
+  bodyText2: {
+    color: theme.palette.tertiary.main,
+  },
+  bodyText3: {
+    color: theme.palette.primary.light,
+  },
 }));
 
 export interface IHeaderProps {}
@@ -118,14 +159,34 @@ const Introduction: React.FC<IHeaderProps> = () => {
 
   return (
     <>
+      <div className={classes.imageBlock}>
+        <div className={classes.imageContainer}>
+          <img
+            className={classes.image}
+            src={
+              AwsConfig.THUMBNAIL_BASE_URL +
+              "profile/profile_1_thumbnail_400px.jpg"
+            }
+          />
+        </div>
+      </div>
       <div className={classes.top}>
         <Typography className={classes.name}>Kevin Jakubauskas</Typography>
       </div>
       <div className={classes.subtext}>
         <Typography className={classes.bodyText}>
-          A constantly evolving full stack developer & 3D designer
+          <span className={classes.bodyText1}>
+            A constantly evolving full stack developer & 3D designer.
+          </span>
           <br />
-          First class BSc in Software Development.
+          <span className={classes.bodyText2}>
+            First class BSc in Software Development.
+          </span>
+
+          <br />
+          <span className={classes.bodyText3}>
+            Full time Software Engineer.
+          </span>
         </Typography>
       </div>
       <div className={classes.links}>

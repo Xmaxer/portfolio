@@ -6,14 +6,12 @@ import clsx from "clsx";
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: 320,
-    [theme.breakpoints.down("md")]: {
-      minHeight: 600,
-    },
+    // [theme.breakpoints.down("md")]: {
+    //   minHeight: 600,
+    // },
     width: "100%",
     backgroundColor: theme.palette.secondary.light,
     display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(1),
     boxSizing: "border-box",
   },
   context: {
@@ -66,6 +64,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(4),
     textAlign: "center",
     width: "100%",
+    backgroundColor: theme.palette.tertiary.main,
+    padding: theme.spacing(2),
+    borderColor: theme.palette.secondary.dark,
+    borderWidth: 2,
+    borderBottomStyle: "solid",
   },
   subtext: {
     fontStyle: "italic",
@@ -85,6 +88,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     width: "100%",
+    padding: theme.spacing(1),
+    boxSizing: "border-box",
   },
   bottomContainerCentered: {
     justifyContent: "center",
@@ -94,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
 export interface IContentCardProps {
   context?: string;
   title: string | React.ReactNode;
-  content: string;
+  content: string | React.ReactNode;
   subtext?: string | React.ReactNode;
 }
 
@@ -130,7 +135,11 @@ const ContentCard: React.FC<IContentCardProps> = ({
             </>
           )}
           <div className={classes.titleContentContainer}>
-            <Typography className={classes.content}>{content}</Typography>
+            {typeof content === "string" ? (
+              <Typography className={classes.content}>{content}</Typography>
+            ) : (
+              content
+            )}
             {subtext && (
               <div className={classes.subtextContainer}>
                 {typeof title === "string" ? (

@@ -1,4 +1,4 @@
-import React, { RefObject, useContext, useEffect, useRef } from "react";
+import React, { RefObject, useCallback, useContext, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { ParallaxContext } from "../../state/ParallaxContext";
 import Introduction from "../Introduction/Introduction";
@@ -27,10 +27,13 @@ const Home: React.FC<IHomeProps> = ({}) => {
   const rootRef: RefObject<HTMLDivElement> | null = useRef(null);
   const tabContext = useTabContext();
 
-  const trackScrollPosition = (position: number) => {
-    setPosition(position);
-    trackAction("Page position", "scroll action", position, true);
-  };
+  const trackScrollPosition = useCallback(
+    (position: number) => {
+      setPosition(position);
+      trackAction("Page position", "scroll action", position, true);
+    },
+    [setPosition]
+  );
 
   return (
     <TabContext.Provider value={tabContext}>

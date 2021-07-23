@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { IconButton, Tooltip, Typography } from "@material-ui/core";
 import { GitHub, Language } from "@material-ui/icons";
 import ContentCard from "../ContentCard/ContentCard";
-import { TECHNOLOGIES } from "../../constants/constants";
+import { TECHNOLOGIES } from "../../constants/technologies";
 import { trackAction } from "../../tracker";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
   superTitle: {
-    color: theme.palette.tertiary.main,
+    color: theme.palette.primary.light,
     fontWeight: "bold",
   },
   cardSubtext: {
