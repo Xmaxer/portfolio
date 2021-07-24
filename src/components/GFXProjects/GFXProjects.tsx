@@ -1,9 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ContentCard from "../ContentCard/ContentCard";
 import GFXCard from "../GFXCard/GFXCard";
 import { PROJECTS_3D } from "../../constants/3DProjects";
 import GFXTitle from "../GFXTitle/GFXTitle";
+import ReactPlayer from "react-player";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   cardsContainer: {
@@ -14,50 +16,21 @@ const useStyles = makeStyles((theme) => ({
       marginTop: 0,
     },
   },
-  projectLinksContainer: {
+  infoContainer: {
+    width: "100%",
+    backgroundColor: theme.palette.primary.light,
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
+    padding: theme.spacing(2),
+    flexDirection: "column",
   },
-  cardTitleText: {
-    marginRight: theme.spacing(1),
+  title: {
+    fontSize: 20,
   },
-  superTitle: {
-    color: theme.palette.tertiary.main,
-    fontWeight: "bold",
-  },
-  cardSubtext: {
+  subtext: {
     fontStyle: "italic",
   },
-  cardSubtextContainer: {
-    display: "flex",
-    "& img": {
-      height: 20,
-      marginLeft: theme.spacing(1),
-      filter: "grayscale(0.5) saturate(1)",
-      transition: "filter 100ms",
-      cursor: "pointer",
-      "&:hover": {
-        transition: "filter 100ms",
-        filter: "grayscale(0) saturate(2)",
-      },
-      "&#mysql_logo": {
-        height: 60,
-      },
-      "&#grpc_logo": {
-        filter: "grayscale(0.5) saturate(3)",
-      },
-      "&#grpc_logo:hover": {
-        filter: "grayscale(0) saturate(3)",
-      },
-    },
-  },
-  cardTitle: {
-    textTransform: "uppercase",
-    fontSize: 28,
-  },
-  cardTechnologies: {},
-  cardProjectLinks: {},
 }));
 
 export interface IGFXProjectsProps {}
@@ -66,6 +39,16 @@ const GFXProjects: React.FC<IGFXProjectsProps> = ({}) => {
   const classes = useStyles();
   return (
     <div className={classes.cardsContainer} id={"programming"}>
+      <div className={classes.infoContainer}>
+        <Typography className={classes.title}>
+          {"Click any image to view it in full size!"}
+        </Typography>
+        <Typography className={classes.subtext}>
+          {
+            "Note: Opening images in full size may often download between 5MB-12MB"
+          }
+        </Typography>
+      </div>
       {PROJECTS_3D.map((card, index) => {
         return (
           <ContentCard
@@ -79,4 +62,4 @@ const GFXProjects: React.FC<IGFXProjectsProps> = ({}) => {
   );
 };
 
-export default GFXProjects;
+export default memo(GFXProjects);

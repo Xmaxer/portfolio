@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, useRef } from "react";
+import React, { memo, RefObject, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TabContent from "../TabContent/TabContent";
 import About from "../About/About";
@@ -8,7 +8,7 @@ import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: "calc(100vh - (50vh + 60px + 136px) + 32px)",
+    marginTop: "calc(100vh - (50vh + 60px + 136px + 20px) + 32px)",
   },
 }));
 
@@ -21,10 +21,10 @@ const Content: React.FC<IContentProps> = ({}) => {
 
   useEffect(() => {
     if (rootRef && rootRef.current) {
-      const position = rootRef.current.offsetTop - 300;
+      const position = rootRef.current.offsetTop / 2;
       const home = document.getElementById("home");
       if (home) {
-        home.scroll({ top: position, behavior: "smooth" });
+        home.scrollTo({ top: position, behavior: "smooth" });
       }
     }
   }, [history.location.hash]);

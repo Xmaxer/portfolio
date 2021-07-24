@@ -4,22 +4,21 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Dialog, IconButton, Slide, Typography } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import { TransitionProps } from "@material-ui/core/transitions";
+import { imageFileTypes, videoFileTypes } from "../../constants/constants";
+import ReactPlayer from "react-player";
+import { AwsConfig } from "../../initAws";
 
 export const useGFXFullPreviewStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     alignItems: "center",
-    alignSelf: "flex-start",
-    justifyContent: "flex-start",
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(1),
     textAlign: "center",
     backgroundColor: theme.palette.tertiary.main,
     padding: theme.spacing(2),
     borderColor: theme.palette.secondary.dark,
     borderWidth: 2,
     borderBottomStyle: "solid",
-    position: "sticky",
-    top: 0,
   },
   subtext: {
     fontStyle: "italic",
@@ -29,16 +28,23 @@ export const useGFXFullPreviewStyles = makeStyles((theme) => ({
     fontSize: 28,
   },
   titleContainer: {
-    marginLeft: theme.spacing(4),
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   imageContainer: {
-    "& > img": {
-      width: "100%",
+    flex: "1 1 auto",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: 1,
+    "& > *": {
+      height: "100%",
     },
   },
   container: {
-    width: "100%",
-    height: "100%",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
   },
 }));
 
@@ -59,6 +65,9 @@ const GFXFullPreview: React.FC<IGFXFullPreviewProps> = ({
   onClose,
 }) => {
   const classes = useGFXFullPreviewStyles();
+  const fileType = imageUrl
+    .slice(imageUrl.lastIndexOf(".") + 1, imageUrl.length)
+    .toLocaleLowerCase();
 
   return (
     <Dialog
@@ -85,7 +94,10 @@ const GFXFullPreview: React.FC<IGFXFullPreviewProps> = ({
           </div>
         </div>
         <div className={classes.imageContainer}>
-          <img src={imageUrl} />
+          {imageFileTypes.includes(fileType) && <img src={imageUrl} />}
+          {videoFileTypes.includes(fileType) && (
+            <video src={imageUrl} preload="auto" autoPlay={true} loop={true} />
+          )}
         </div>
       </div>
     </Dialog>

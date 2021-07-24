@@ -3,6 +3,8 @@ import { IGFXCardProps } from "./interfaces";
 import { makeStyles } from "@material-ui/core/styles";
 import { AwsConfig } from "../../initAws";
 import GFXFullPreview from "../GFXFullPreview/GFXFullPreview";
+import ReactPlayer from "react-player";
+import { imageFileTypes, videoFileTypes } from "../../constants/constants";
 
 export const useGraphicsCardStyles = makeStyles((theme) => ({
   root: {
@@ -52,6 +54,7 @@ interface IOpenState {
   title: string;
   subtitle?: string;
 }
+
 const GFXCard: React.FC<IGFXCardProps> = (props) => {
   const classes = useGraphicsCardStyles();
   const [open, setOpen] = React.useState<IOpenState>({
@@ -61,7 +64,9 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
   });
 
   const onClick = (url: string, title: string, subtitle?: string) => {
-    const matches = new RegExp(/(.*)_thumbnail_.*(\..*)/, "g").exec(url);
+    const matches = new RegExp(/(.*)_thumbnail.*(\..*)/, "g").exec(url);
+    console.log(matches);
+
     if (matches && matches.length === 3) {
       setOpen({
         open: true,
@@ -82,15 +87,37 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
   return (
     <>
       <div className={classes.root}>
-        {props.images.map((img, index) => (
-          <div className={classes.imageContainer} key={img + index}>
-            <img
-              className={classes.image}
-              src={AwsConfig.THUMBNAIL_BASE_URL + img}
-              onClick={() => onClick(img, props.name, props.description)}
-            />
-          </div>
-        ))}
+        {props.images.map((img, index) => {
+          const fileType = img
+            .slice(img.lastIndexOf(".") + 1, img.length)
+            .toLocaleLowerCase();
+          if (imageFileTypes.includes(fileType)) {
+            return (
+              <div className={classes.imageContainer} key={img + index}>
+                <img
+                  className={classes.image}
+                  src={AwsConfig.THUMBNAIL_BASE_URL + img}
+                  onClick={() => onClick(img, props.name, props.description)}
+                />
+              </div>
+            );
+          } else if (videoFileTypes.includes(fileType)) {
+            return (
+              <div>
+                <div className={classes.imageContainer} key={img + index}>
+                  <video
+                    src={AwsConfig.THUMBNAIL_BASE_URL + img}
+                    preload="auto"
+                    autoPlay={true}
+                    loop={true}
+                    className={classes.image}
+                    onClick={() => onClick(img, props.name, props.description)}
+                  />
+                </div>
+              </div>
+            );
+          } else return null;
+        })}
       </div>
       <GFXFullPreview {...open} onClose={onCloseCallback} />
     </>

@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext", "es6"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es6"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,11 +18,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

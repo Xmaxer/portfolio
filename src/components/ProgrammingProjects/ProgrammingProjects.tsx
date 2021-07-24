@@ -77,7 +77,6 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           <Typography className={classes.cardTitle}>
             {"This Website!"}
           </Typography>
-          <Typography className={classes.superTitle}>WIP</Typography>
           <div className={classes.projectLinksContainer}>
             <Typography className={classes.cardTitleText}>
               Project links:

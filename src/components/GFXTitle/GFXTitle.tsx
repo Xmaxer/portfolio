@@ -5,7 +5,6 @@ import { Typography } from "@material-ui/core";
 
 export const useGFXTitleStyles = makeStyles(() => ({
   title: {
-    textTransform: "uppercase",
     fontSize: 28,
   },
   subtitle: {
