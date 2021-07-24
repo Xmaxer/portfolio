@@ -3,8 +3,8 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 import { IconButton, Typography } from "@material-ui/core";
 import { ParallaxContext } from "../../state/ParallaxContext";
 import { Email, GitHub, LinkedIn } from "@material-ui/icons";
-import { trackAction } from "../../tracker";
 import { AwsConfig } from "../../initAws";
+import { useGA4React } from "ga-4-react";
 
 export interface IMakeStylesProps {
   position: number;
@@ -152,9 +152,12 @@ export interface IHeaderProps {}
 const Introduction: React.FC<IHeaderProps> = () => {
   const { position } = useContext(ParallaxContext);
   const classes = useStyles({ position });
+  const ga = useGA4React();
 
-  const trackClick = (action: string) => {
-    trackAction("Personal Links", action);
+  const track = (label: string) => {
+    if (ga) {
+      ga.event("click", label, "Personal info interest", false);
+    }
   };
 
   return (
@@ -171,21 +174,21 @@ const Introduction: React.FC<IHeaderProps> = () => {
         </div>
       </div>
       <div className={classes.top}>
-        <Typography className={classes.name}>Kevin Jakubauskas</Typography>
+        <Typography className={classes.name}>{"Kevin Jakubauskas"}</Typography>
       </div>
       <div className={classes.subtext}>
         <Typography className={classes.bodyText}>
           <span className={classes.bodyText1}>
-            A constantly evolving full stack developer & 3D designer.
+            {"A constantly evolving full stack developer & 3D designer."}
           </span>
           <br />
           <span className={classes.bodyText2}>
-            First class BSc in Software Development.
+            {"First class BSc in Software Development."}
           </span>
 
           <br />
           <span className={classes.bodyText3}>
-            Full time Software Engineer.
+            {"Full time Software Engineer."}
           </span>
         </Typography>
       </div>
@@ -194,7 +197,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           className={classes.link}
           href={"https://www.linkedin.com/in/kevin-jakubauskas/"}
           target={"_blank"}
-          onClick={() => trackClick("Clicked LinkedIn profile")}
+          onClick={() => track("Personal Github")}
         >
           <LinkedIn />
         </IconButton>
@@ -202,7 +205,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           className={classes.link}
           href={"https://github.com/Xmaxer?tab=repositories"}
           target={"_blank"}
-          onClick={() => trackClick("Clicked GitHub repositories")}
+          onClick={() => track("Personal Linkedin")}
         >
           <GitHub />
         </IconButton>
@@ -210,7 +213,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           className={classes.link}
           href={"mailto:contactkevinjakubauskas@gmail.com"}
           target={"_blank"}
-          onClick={() => trackClick("Clicked email link")}
+          onClick={() => track("Personal Email")}
         >
           <Email />
         </IconButton>

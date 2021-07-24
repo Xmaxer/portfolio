@@ -1,4 +1,11 @@
-export const TECHNOLOGIES = [
+export interface ITechnology {
+  filename: string;
+  link: string;
+  title: string;
+  id: string;
+}
+
+export const TECHNOLOGIES: ITechnology[] = [
   {
     filename: "adobe_xd.svg",
     link: "https://www.adobe.com/ie/products/xd.html",

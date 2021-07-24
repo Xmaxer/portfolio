@@ -6,7 +6,6 @@ import Content from "../Content/Content";
 import Header from "../Header/Header";
 import useTabContext from "../../contexts/useTabContext";
 import { TabContext } from "../../contexts/TabContext";
-import { trackAction } from "../../tracker";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +29,6 @@ const Home: React.FC<IHomeProps> = ({}) => {
   const trackScrollPosition = useCallback(
     (position: number) => {
       setPosition(position);
-      trackAction("Page position", "scroll action", position, true);
     },
     [setPosition]
   );

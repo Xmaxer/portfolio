@@ -5,8 +5,6 @@ import { Dialog, IconButton, Slide, Typography } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import { TransitionProps } from "@material-ui/core/transitions";
 import { imageFileTypes, videoFileTypes } from "../../constants/constants";
-import ReactPlayer from "react-player";
-import { AwsConfig } from "../../initAws";
 
 export const useGFXFullPreviewStyles = makeStyles((theme) => ({
   toolbar: {

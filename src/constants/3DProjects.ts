@@ -46,7 +46,7 @@ export const PROJECTS_3D: IProjectType[] = [
   },
   {
     name: "Beretta M1935",
-    description: "First few 3D gun models, a true Italian cuisine.",
+    description: "Early 3D gun model, a true Italian cuisine.",
     images: [
       "beretta_m1935/M1935_1_thumbnail_400px.png",
       "beretta_m1935/M1935_2_thumbnail_400px.png",

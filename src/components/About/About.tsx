@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import ContentCard from "../ContentCard/ContentCard";
 import { Divider, Tooltip, Typography } from "@material-ui/core";
 import { TECHNOLOGIES } from "../../constants/technologies";
+import { ABOUT_INFO } from "../../constants/aboutInfo";
+import { useGA4React } from "ga-4-react";
 
 const useStyles = makeStyles((theme) => ({
   cardsContainer: {
@@ -65,67 +67,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [
-  {
-    title: "Full time Software Engineer @ Poppulo",
-    context: "present",
-    content:
-      "Currently employed at Poppulo as a full-stack software engineer. My work mostly consists of AWS infrastructure, and mobile app development (React native), as well as a monolith Java/AngularJS application.",
-  },
-  {
-    title: "Full time Software Engineer @ Pilz",
-    context: "2020-2021",
-    content:
-      "Worked in Pilz as a full-stack software engineer, working primarily with React, Spring Boot, AWS, ElectronJS, and various other miscellaneous technologies, frameworks and database systems such as Drupal CMS, Docker, PostgreSQL and Selenium.",
-  },
-  {
-    title: "Internship as a Software Engineer @ Pilz",
-    context: "2019",
-    content:
-      "I did an 8 month internship at Pilz, where I was put on a team and worked as a full stack developer, working on frontend, backend, CI/CD and everything in-between.",
-  },
-  {
-    title: "BSc in Software Development @ CIT",
-    context: "2016-2020",
-    content:
-      "I studied for 4 years at the Cork Institute of Technology, where I graduated with a BSc in Software Development with First Class Honours",
-  },
-  {
-    title: "Best math student award",
-    context: "2017",
-    content:
-      "Received an award which recognised me as the best math student by the Faculty of Engineering and Science at the Cork Institute and Technology",
-  },
-  {
-    title: "Competed in CanSat (ESA hosted event)",
-    context: "2015",
-    content:
-      " I entered a CanSat competition which was run by the European Space Agency (ESA) with a team of four. The objective was to create a mini satellite from a can sized object, this is where I gained experience working with Arduino and basic C. The satellite was successfully launched at the Birr Castle where it gathered various sensor data while it was in the air.",
-  },
-  {
-    title: "Assisted in teaching CoderDojo",
-    context: "2014",
-    content:
-      "I able to assist in teaching other students at the local CoderDojo in my school during this time, where I helped with JS/Java primarily.",
-  },
-  {
-    title: "Munster Programming Training",
-    context: "2014",
-    content:
-      "Attended and finished Munster Programming Training at UCC. Worked mainly with web development features (Frontend/Backend/Deployment). This was done while I was still in secondary school.",
-  },
-  {
-    title: "NXT Robotics",
-    context: "2012-2014",
-    content:
-      "Myself and a group of friends entered NXT Lego Robotics competitions throughout this time, first of which took place at the Cork Institute of Technology and the other we travelled to Galway to compete with other schools.",
-  },
-];
-
 export interface IAboutProps {}
 
 const About: React.FC<IAboutProps> = ({}) => {
   const classes = useStyles();
+
+  const ga = useGA4React();
+
+  const track = (label: string) => {
+    if (ga) {
+      ga.event("click", label, "Technology link interest", false);
+    }
+  };
 
   return (
     <div className={classes.cardsContainer} id={"about"}>
@@ -138,7 +91,12 @@ const About: React.FC<IAboutProps> = ({}) => {
           {TECHNOLOGIES.map((technology, index) => {
             return (
               <Tooltip title={technology.title} key={`technology-${index}`}>
-                <a rel={"noreferrer"} href={technology.link} target={"_blank"}>
+                <a
+                  rel={"noreferrer"}
+                  href={technology.link}
+                  target={"_blank"}
+                  onClick={() => track(technology.id)}
+                >
                   <img
                     src={
                       process.env.PUBLIC_URL + "/images/" + technology.filename
@@ -154,7 +112,7 @@ const About: React.FC<IAboutProps> = ({}) => {
           })}
         </div>
       </div>
-      {cards.map((card, index) => {
+      {ABOUT_INFO.map((card, index) => {
         return <ContentCard key={`card-${index}`} {...card} />;
       })}
     </div>

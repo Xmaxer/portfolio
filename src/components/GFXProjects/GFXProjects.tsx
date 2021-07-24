@@ -4,7 +4,6 @@ import ContentCard from "../ContentCard/ContentCard";
 import GFXCard from "../GFXCard/GFXCard";
 import { PROJECTS_3D } from "../../constants/3DProjects";
 import GFXTitle from "../GFXTitle/GFXTitle";
-import ReactPlayer from "react-player";
 import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +37,7 @@ export interface IGFXProjectsProps {}
 const GFXProjects: React.FC<IGFXProjectsProps> = ({}) => {
   const classes = useStyles();
   return (
-    <div className={classes.cardsContainer} id={"programming"}>
+    <div className={classes.cardsContainer} id={"gfx"}>
       <div className={classes.infoContainer}>
         <Typography className={classes.title}>
           {"Click any image to view it in full size!"}

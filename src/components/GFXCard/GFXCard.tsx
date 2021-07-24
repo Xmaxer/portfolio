@@ -3,8 +3,8 @@ import { IGFXCardProps } from "./interfaces";
 import { makeStyles } from "@material-ui/core/styles";
 import { AwsConfig } from "../../initAws";
 import GFXFullPreview from "../GFXFullPreview/GFXFullPreview";
-import ReactPlayer from "react-player";
 import { imageFileTypes, videoFileTypes } from "../../constants/constants";
+import { useGA4React } from "ga-4-react";
 
 export const useGraphicsCardStyles = makeStyles((theme) => ({
   root: {
@@ -62,12 +62,18 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
     imageUrl: "",
     title: "",
   });
+  const ga = useGA4React();
+
+  const track = (label: string) => {
+    if (ga) {
+      ga.event("click", label, "Open full size image", false);
+    }
+  };
 
   const onClick = (url: string, title: string, subtitle?: string) => {
     const matches = new RegExp(/(.*)_thumbnail.*(\..*)/, "g").exec(url);
-    console.log(matches);
-
     if (matches && matches.length === 3) {
+      track(title);
       setOpen({
         open: true,
         title: title,
