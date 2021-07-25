@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(4),
   },
   titleContainer: {
+    boxSizing: "border-box",
     alignSelf: "flex-start",
     marginBottom: theme.spacing(4),
     textAlign: "center",

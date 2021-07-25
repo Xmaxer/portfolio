@@ -70,10 +70,15 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
     }
   };
 
-  const onClick = (url: string, title: string, subtitle?: string) => {
+  const onClick = (
+    url: string,
+    title: string,
+    number: number,
+    subtitle?: string
+  ) => {
     const matches = new RegExp(/(.*)_thumbnail.*(\..*)/, "g").exec(url);
     if (matches && matches.length === 3) {
-      track(title);
+      track(title + "_" + number);
       setOpen({
         open: true,
         title: title,
@@ -103,7 +108,9 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
                 <img
                   className={classes.image}
                   src={AwsConfig.THUMBNAIL_BASE_URL + img}
-                  onClick={() => onClick(img, props.name, props.description)}
+                  onClick={() =>
+                    onClick(img, props.name, index, props.description)
+                  }
                 />
               </div>
             );
@@ -117,7 +124,9 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
                     autoPlay={true}
                     loop={true}
                     className={classes.image}
-                    onClick={() => onClick(img, props.name, props.description)}
+                    onClick={() =>
+                      onClick(img, props.name, index, props.description)
+                    }
                   />
                 </div>
               </div>
