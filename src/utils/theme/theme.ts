@@ -1,29 +1,27 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import { PaletteColorOptions } from "@material-ui/core";
-import { PaletteColor } from "@material-ui/core/styles/createPalette";
+import { createTheme, PaletteColorOptions, PaletteColor } from '@mui/material';
 
 const palette = {
   primary: {
-    light: "#ffffff",
-    main: "#a8a8a8",
-    dark: "#4E4E4E",
+    light: '#ffffff',
+    main: '#a8a8a8',
+    dark: '#4E4E4E',
   },
   secondary: {
-    light: "#E0FBFC",
-    main: "#98C1D9",
-    dark: "#293241",
+    light: '#E0FBFC',
+    main: '#98C1D9',
+    dark: '#293241',
   },
   tertiary: {
-    light: "#fda690",
-    main: "#EE6C4D",
-    dark: "#fc481e",
+    light: '#fda690',
+    main: '#EE6C4D',
+    dark: '#fc481e',
   },
-  error: "#b20300",
-  success: "#00b206",
-  info: "#00b8ff",
+  error: '#b20300',
+  success: '#00b206',
+  info: '#00b8ff',
 };
 
-declare module "@material-ui/core/styles/createPalette" {
+declare module '@mui/material/styles/createPalette' {
   export interface Palette {
     tertiary: PaletteColor;
   }
@@ -33,7 +31,7 @@ declare module "@material-ui/core/styles/createPalette" {
   }
 }
 
-const generatedPalette = createMuiTheme({
+const generatedPalette = createTheme({
   palette: {
     primary: palette.primary,
     secondary: palette.secondary,
@@ -52,7 +50,7 @@ const generatedPalette = createMuiTheme({
   },
 });
 
-const theme = createMuiTheme({
+const theme = createTheme({
   ...generatedPalette,
   spacing: 8,
   components: {
@@ -72,7 +70,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ["Montserrat", "Roboto", "sans-serif"].join(","),
+    fontFamily: ['Montserrat', 'Roboto', 'sans-serif'].join(','),
   },
 });
 

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export interface IParallaxContext {
   setPosition: (position: number) => void;
@@ -11,5 +11,5 @@ export const DEFAULT_PARALLAX_CONTEXT_VALUE = {
 };
 
 export const ParallaxContext = createContext<IParallaxContext>(
-  DEFAULT_PARALLAX_CONTEXT_VALUE
+  DEFAULT_PARALLAX_CONTEXT_VALUE,
 );

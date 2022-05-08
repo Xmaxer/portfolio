@@ -1,52 +1,15 @@
-import React from "react";
-import { IGFXCardProps } from "./interfaces";
-import { makeStyles } from "@material-ui/core/styles";
-import { AwsConfig } from "../../initAws";
-import GFXFullPreview from "../GFXFullPreview/GFXFullPreview";
-import { imageFileTypes, videoFileTypes } from "../../constants/constants";
-import { useGA4React } from "ga-4-react";
+import { Box, useTheme } from '@mui/material';
+import { useGA4React } from 'ga-4-react';
+import React from 'react';
 
-export const useGraphicsCardStyles = makeStyles((theme) => ({
-  root: {
-    minHeight: 260,
-    width: "100%",
-    backgroundColor: theme.palette.secondary.light,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    boxSizing: "border-box",
-    "& > *": {
-      marginLeft: theme.spacing(2),
-      marginTop: theme.spacing(2),
-    },
-    "& > *:first-child": {
-      marginLeft: 0,
-    },
-  },
-  imageContainer: {
-    height: 200,
-    width: 200,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: "50%",
-    border: "2px solid " + theme.palette.primary.main,
-    overflow: "hidden",
-    backgroundColor: theme.palette.primary.light,
-    transition: "width 0.2s, height 0.2s, border 0.2s",
-    "&:hover": {
-      height: 210,
-      width: 210,
-      cursor: "pointer",
-      border: "2px solid " + theme.palette.tertiary.main,
-    },
-  },
-  image: {
-    width: "auto",
-    height: "100%",
-  },
-}));
+import GFXFullPreview from '../GFXFullPreview/GFXFullPreview';
+
+import { AwsConfig } from '@src/initAws';
+
+import { IProjectType } from '@constant/3DProjects';
+import { imageFileTypes, videoFileTypes } from '@constant/constants';
+
+export interface IGFXCardProps extends IProjectType {}
 
 interface IOpenState {
   open: boolean;
@@ -56,17 +19,17 @@ interface IOpenState {
 }
 
 const GFXCard: React.FC<IGFXCardProps> = (props) => {
-  const classes = useGraphicsCardStyles();
+  const theme = useTheme();
   const [open, setOpen] = React.useState<IOpenState>({
     open: false,
-    imageUrl: "",
-    title: "",
+    imageUrl: '',
+    title: '',
   });
   const ga = useGA4React();
 
   const track = (label: string) => {
     if (ga) {
-      ga.event("click", label, "Open full size image", false);
+      ga.event('click', label, 'Open full size image', false);
     }
   };
 
@@ -74,11 +37,11 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
     url: string,
     title: string,
     number: number,
-    subtitle?: string
+    subtitle?: string,
   ) => {
-    const matches = new RegExp(/(.*)_thumbnail.*(\..*)/, "g").exec(url);
+    const matches = new RegExp(/(.*)_thumbnail.*(\..*)/, 'g').exec(url);
     if (matches && matches.length === 3) {
-      track(title + "_" + number);
+      track(title + '_' + number);
       setOpen({
         open: true,
         title: title,
@@ -97,43 +60,107 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
 
   return (
     <>
-      <div className={classes.root}>
+      <Box
+        sx={{
+          minHeight: 260,
+          width: '100%',
+          backgroundColor: theme.palette.secondary.light,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          boxSizing: 'border-box',
+          '& > *': {
+            marginLeft: theme.spacing(2),
+            marginTop: theme.spacing(2),
+          },
+          '& > *:first-child': {
+            marginLeft: 0,
+          },
+        }}
+      >
         {props.images.map((img, index) => {
           const fileType = img
-            .slice(img.lastIndexOf(".") + 1, img.length)
+            .slice(img.lastIndexOf('.') + 1, img.length)
             .toLocaleLowerCase();
           if (imageFileTypes.includes(fileType)) {
             return (
-              <div className={classes.imageContainer} key={img + index}>
+              <Box
+                sx={{
+                  height: 200,
+                  width: 200,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '50%',
+                  border: '2px solid ' + theme.palette.primary.main,
+                  overflow: 'hidden',
+                  backgroundColor: theme.palette.primary.light,
+                  transition: 'width 0.2s, height 0.2s, border 0.2s',
+                  '&:hover': {
+                    height: 210,
+                    width: 210,
+                    cursor: 'pointer',
+                    border: '2px solid ' + theme.palette.tertiary.main,
+                  },
+                }}
+                key={img + index}
+              >
                 <img
-                  className={classes.image}
+                  style={{
+                    width: 'auto',
+                    height: '100%',
+                  }}
                   src={AwsConfig.THUMBNAIL_BASE_URL + img}
                   onClick={() =>
                     onClick(img, props.name, index, props.description)
                   }
                 />
-              </div>
+              </Box>
             );
           } else if (videoFileTypes.includes(fileType)) {
             return (
-              <div>
-                <div className={classes.imageContainer} key={img + index}>
+              <Box>
+                <Box
+                  sx={{
+                    height: 200,
+                    width: 200,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '50%',
+                    border: '2px solid ' + theme.palette.primary.main,
+                    overflow: 'hidden',
+                    backgroundColor: theme.palette.primary.light,
+                    transition: 'width 0.2s, height 0.2s, border 0.2s',
+                    '&:hover': {
+                      height: 210,
+                      width: 210,
+                      cursor: 'pointer',
+                      border: '2px solid ' + theme.palette.tertiary.main,
+                    },
+                  }}
+                  key={img + index}
+                >
                   <video
                     src={AwsConfig.THUMBNAIL_BASE_URL + img}
                     preload="auto"
                     autoPlay={true}
                     loop={true}
-                    className={classes.image}
+                    style={{
+                      width: 'auto',
+                      height: '100%',
+                    }}
                     onClick={() =>
                       onClick(img, props.name, index, props.description)
                     }
                   />
-                </div>
-              </div>
+                </Box>
+              </Box>
             );
           } else return null;
         })}
-      </div>
+      </Box>
       <GFXFullPreview {...open} onClose={onCloseCallback} />
     </>
   );

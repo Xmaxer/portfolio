@@ -1,10 +1,8 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import HeaderTabs from "../../HeaderTabs/HeaderTabs";
-import HeaderTab from "../../HeaderButton/HeaderTab";
-import { headerItems } from "../Header";
+import React from 'react';
 
-const useStyles = makeStyles((theme) => ({}));
+import { headerItems } from '@component/Header/Header';
+import HeaderTab from '@component/HeaderButton/HeaderTab';
+import HeaderTabs from '@component/HeaderTabs/HeaderTabs';
 
 export interface ITabsProps {
   onChange: (newValue: number) => void;
@@ -12,15 +10,17 @@ export interface ITabsProps {
 }
 
 const Tabs: React.FC<ITabsProps> = ({ onChange, selected }) => {
-  const classes = useStyles();
+  const handleChange = (event: React.SyntheticEvent, value: number) => {
+    onChange(value);
+  };
 
   return (
-    <HeaderTabs onChange={(e, i) => onChange(i)} value={selected}>
+    <HeaderTabs onChange={handleChange} value={selected}>
       {headerItems.map((item, index) => {
         return (
           <HeaderTab
             key={`header-tab-${index}`}
-            autoCapitalize={"true"}
+            autoCapitalize={'true'}
             label={item.label}
           />
         );

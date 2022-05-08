@@ -1,18 +1,17 @@
-import React, { useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { TabContext } from "../../contexts/TabContext";
+import { Box } from '@mui/material';
+import React, { useContext } from 'react';
 
-const useStyles = makeStyles((theme) => ({}));
+import { TabContext } from '@context/TabContext';
 
 export interface ITabContentProps {
   value: number;
+  children: React.ReactNode;
 }
 
 const TabContent: React.FC<ITabContentProps> = ({ value, children }) => {
-  const classes = useStyles();
   const { selected } = useContext(TabContext);
 
-  return selected === value ? <div>{children}</div> : null;
+  return selected === value ? <Box>{children}</Box> : null;
 };
 
 export default TabContent;

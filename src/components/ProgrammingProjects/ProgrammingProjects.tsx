@@ -1,28 +1,29 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import ContentCard from "../ContentCard/ContentCard";
-import { PROGRAMMING_PROJECTS } from "../../constants/ProgrammingProjects";
-import ProgrammingCard from "../ProgrammingCard/ProgrammingCard";
-import Subtext from "../ProgrammingCard/Subtext/Subtext";
+import { Box, useTheme } from '@mui/material';
+import React from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  cardsContainer: {
-    "& > *": {
-      marginTop: theme.spacing(4),
-    },
-    "& > *:first-child": {
-      marginTop: 0,
-    },
-  },
-}));
+import ContentCard from '@component/ContentCard/ContentCard';
+import ProgrammingCard from '@component/ProgrammingCard/ProgrammingCard';
+import Subtext from '@component/ProgrammingCard/Subtext/Subtext';
+
+import { PROGRAMMING_PROJECTS } from '@constant/ProgrammingProjects';
 
 export interface IProgrammingProjectsProps {}
 
 const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
-  const classes = useStyles();
+  const theme = useTheme();
 
   return (
-    <div className={classes.cardsContainer} id={"programming"}>
+    <Box
+      sx={{
+        '& > *': {
+          marginTop: theme.spacing(4),
+        },
+        '& > *:first-child': {
+          marginTop: 0,
+        },
+      }}
+      id={'programming'}
+    >
       {PROGRAMMING_PROJECTS.map((card, index) => {
         return (
           <ContentCard
@@ -39,7 +40,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
           />
         );
       })}
-    </div>
+    </Box>
   );
 };
 

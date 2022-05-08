@@ -3,47 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "homepage": ".",
-  "dependencies": {
-    "@emotion/core": "10.1.1",
-    "@emotion/styled": "10.0.27",
-    "@material-ui/core": "5.0.0-alpha.15",
-    "@material-ui/icons": "5.0.0-alpha.15",
-    "@material-ui/lab": "5.0.0-alpha.15",
-    "aws-sdk": "2.935.0",
-    "clsx": "1.1.1",
-    "ga-4-react": "0.1.281",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-router": "5.2.0",
-    "react-router-dom": "5.2.0",
-    "react-scripts": "4.0.3",
-    "web-vitals": "0.2.4"
-  },
-  "devDependencies": {
-    "@types/history": "4.7.8",
-    "@types/react": "17.0.14",
-    "@types/react-dom": "17.0.9",
-    "@types/react-router-dom": "5.1.8",
-    "@typescript-eslint/eslint-plugin": "4.6.1",
-    "eslint": "7.13.0",
-    "eslint-config-prettier": "6.15.0",
-    "eslint-plugin-react": "7.21.5",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "prettier": "2.1.2",
-    "ts-node": "10.1.0",
-    "typescript": "4.3.5"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "prettier": "prettier --write ./src/**"
+    "build": "craco build",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0 --fix && prettier --write . && git add .",
+    "lint:ci": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
+    "prettier:ci": "prettier --check .",
+    "start": "craco start",
+    "typescript": "tsc"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "pre-commit": [
+    "lint",
+    "typescript"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -55,5 +26,50 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "dependencies": {
+    "@emotion/core": "11.0.0",
+    "@emotion/react": "11.9.0",
+    "@emotion/styled": "11.8.1",
+    "@mui/icons-material": "5.6.2",
+    "@mui/lab": "5.0.0-alpha.80",
+    "@mui/material": "5.6.4",
+    "aws-sdk": "2.935.0",
+    "ga-4-react": "0.1.281",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-router": "1.0.3",
+    "react-router-dom": "6.3.0",
+    "react-scripts": "5.0.1",
+    "util": "0.12.4"
+  },
+  "devDependencies": {
+    "@craco/craco": "6.4.3",
+    "@trivago/prettier-plugin-sort-imports": "3.2.0",
+    "@types/craco__craco": "6.4.0",
+    "@types/history": "4.7.11",
+    "@types/react": "18.0.8",
+    "@types/react-dom": "18.0.3",
+    "@types/react-router-dom": "5.3.3",
+    "@typescript-eslint/eslint-plugin": "5.22.0",
+    "@typescript-eslint/parser": "5.9.1",
+    "craco-alias": "3.0.1",
+    "eslint": "8.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react-hooks": "4.5.0",
+    "pre-commit": "1.2.2",
+    "prettier": "2.6.2",
+    "prettier-plugin-packagejson": "2.2.17",
+    "ts-node": "10.7.0",
+    "tsconfig-paths-webpack-plugin": "3.5.2",
+    "typescript": "4.6.4"
   }
 }

@@ -1,12 +1,10 @@
-import React from "react";
-import { IAboutCardProps } from "./interfaces";
-import { makeStyles } from "@material-ui/core/styles";
+import { Box } from '@mui/material';
+import React from 'react';
 
-export const useAboutCardStyles = makeStyles((theme) => ({}));
+export interface IAboutCardProps {}
 
 const AboutCard: React.FC<IAboutCardProps> = ({}) => {
-  const classes = useAboutCardStyles();
-  return <div></div>;
+  return <Box />;
 };
 
 export default AboutCard;

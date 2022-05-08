@@ -1,29 +1,28 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { Tabs } from "@material-ui/core";
+import { Tabs, TabsProps } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-const HeaderTabs = withStyles((theme) => ({
+const HeaderTabs = styled(Tabs)<TabsProps>(({ theme }) => ({
   root: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('md')]: {
       minHeight: 32,
-      height: "fit-content",
-      marginTop: "auto",
+      height: 'fit-content',
+      marginTop: 'auto',
     },
   },
   indicator: {
     backgroundColor: theme.palette.tertiary.main,
   },
   flexContainer: {
-    "& > .MuiTab-root": {
-      [theme.breakpoints.down("md")]: {
+    '& > .MuiTab-root': {
+      [theme.breakpoints.down('md')]: {
         marginLeft: 0,
       },
       marginLeft: theme.spacing(8),
     },
-    "& > .MuiTab-root:first-child": {
+    '& > .MuiTab-root:first-child': {
       marginLeft: 0,
     },
   },
-}))(Tabs);
+}));
 
 export default HeaderTabs;

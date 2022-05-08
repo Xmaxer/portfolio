@@ -1,54 +1,67 @@
-import React from "react";
-import { IProgrammingCardProps } from "./interfaces";
-import { makeStyles } from "@material-ui/core/styles";
-import { IconButton, Tooltip, Typography } from "@material-ui/core";
-import { GitHub } from "@material-ui/icons";
-import { useGA4React } from "ga-4-react";
+import { GitHub } from '@mui/icons-material';
+import { Box, IconButton, Tooltip, Typography, useTheme } from '@mui/material';
+import { useGA4React } from 'ga-4-react';
+import React from 'react';
 
-export const useProgrammingCardStyles = makeStyles((theme) => ({
-  cardTitle: {
-    textTransform: "uppercase",
-    fontSize: 28,
-  },
-  superTitle: {
-    color: theme.palette.primary.light,
-    fontWeight: "bold",
-  },
-  projectLinksContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  cardTitleText: {
-    marginRight: theme.spacing(1),
-  },
-  cardProjectLinks: {},
-}));
+export interface IProjectLink {
+  title: string;
+  url: string;
+  icon?: React.ElementType;
+}
+
+export interface IProgrammingCardProps {
+  title: string;
+  wip?: boolean;
+  projectLinks?: IProjectLink[];
+}
 
 const ProgrammingCard: React.FC<IProgrammingCardProps> = ({
   title,
   wip,
   projectLinks,
 }) => {
-  const classes = useProgrammingCardStyles();
   const ga = useGA4React();
+  const theme = useTheme();
 
   const track = (label: string) => {
     if (ga) {
-      ga.event("click", label, "Programming card project link", false);
+      ga.event('click', label, 'Programming card project link', false);
     }
   };
 
   return (
-    <div>
-      <Typography className={classes.cardTitle}>{title}</Typography>
-      {wip && <Typography className={classes.superTitle}>{"WIP"}</Typography>}
+    <Box>
+      <Typography
+        sx={{
+          textTransform: 'uppercase',
+          fontSize: 28,
+        }}
+      >
+        {title}
+      </Typography>
+      {wip && (
+        <Typography
+          sx={{ color: theme.palette.primary.light, fontWeight: 'bold' }}
+        >
+          {'WIP'}
+        </Typography>
+      )}
       {projectLinks && projectLinks.length > 0 && (
-        <div className={classes.projectLinksContainer}>
-          <Typography className={classes.cardTitleText}>
-            {"Project links:"}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Typography
+            sx={{
+              marginRight: theme.spacing(1),
+            }}
+          >
+            {'Project links:'}
           </Typography>
-          <div className={classes.cardProjectLinks}>
+          <Box>
             {projectLinks.map((projectLink, index) => {
               const CustomIcon = projectLink.icon;
               return (
@@ -58,7 +71,7 @@ const ProgrammingCard: React.FC<IProgrammingCardProps> = ({
                 >
                   <IconButton
                     href={projectLink.url}
-                    target={"_blank"}
+                    target={'_blank'}
                     onClick={() => track(projectLink.title)}
                   >
                     {CustomIcon ? <CustomIcon /> : <GitHub />}
@@ -66,10 +79,10 @@ const ProgrammingCard: React.FC<IProgrammingCardProps> = ({
                 </Tooltip>
               );
             })}
-          </div>
-        </div>
+          </Box>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 };
 

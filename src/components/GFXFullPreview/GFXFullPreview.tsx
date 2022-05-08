@@ -1,60 +1,36 @@
-import React from "react";
-import { IGFXFullPreviewProps } from "./interfaces";
-import { makeStyles } from "@material-ui/core/styles";
-import { Dialog, IconButton, Slide, Typography } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
-import { TransitionProps } from "@material-ui/core/transitions";
-import { imageFileTypes, videoFileTypes } from "../../constants/constants";
+import CloseIcon from '@mui/icons-material/Close';
+import {
+  Box,
+  Dialog,
+  IconButton,
+  Slide,
+  Typography,
+  useTheme,
+} from '@mui/material';
+import { TransitionProps } from '@mui/material/transitions';
+import React from 'react';
 
-export const useGFXFullPreviewStyles = makeStyles((theme) => ({
-  toolbar: {
-    display: "flex",
-    alignItems: "center",
-    marginBottom: theme.spacing(1),
-    textAlign: "center",
-    backgroundColor: theme.palette.tertiary.main,
-    padding: theme.spacing(2),
-    borderColor: theme.palette.secondary.dark,
-    borderWidth: 2,
-    borderBottomStyle: "solid",
-  },
-  subtext: {
-    fontStyle: "italic",
-  },
-  title: {
-    textTransform: "uppercase",
-    fontSize: 28,
-  },
-  titleContainer: {
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-  imageContainer: {
-    flex: "1 1 auto",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: 1,
-    "& > *": {
-      width: "100%",
-      height: "100%",
-      objectFit: "contain",
-    },
-  },
-  container: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-  },
-}));
+import { imageFileTypes, videoFileTypes } from '@constant/constants';
+
+export interface IGFXFullPreviewProps {
+  open: boolean;
+  title: string;
+  subtitle?: string;
+  imageUrl: string;
+  onClose: () => void;
+}
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
-    children?: React.ReactElement;
+    children: React.ReactElement;
   },
-  ref: React.Ref<unknown>
+  ref: React.Ref<unknown>,
 ) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return (
+    <Slide direction="up" ref={ref} {...props}>
+      {props.children}
+    </Slide>
+  );
 });
 
 const GFXFullPreview: React.FC<IGFXFullPreviewProps> = ({
@@ -64,9 +40,9 @@ const GFXFullPreview: React.FC<IGFXFullPreviewProps> = ({
   imageUrl,
   onClose,
 }) => {
-  const classes = useGFXFullPreviewStyles();
+  const theme = useTheme();
   const fileType = imageUrl
-    .slice(imageUrl.lastIndexOf(".") + 1, imageUrl.length)
+    .slice(imageUrl.lastIndexOf('.') + 1, imageUrl.length)
     .toLocaleLowerCase();
 
   return (
@@ -76,8 +52,26 @@ const GFXFullPreview: React.FC<IGFXFullPreviewProps> = ({
       onClose={onClose}
       TransitionComponent={Transition}
     >
-      <div className={classes.container}>
-        <div className={classes.toolbar}>
+      <Box
+        sx={{
+          height: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            marginBottom: theme.spacing(1),
+            textAlign: 'center',
+            backgroundColor: theme.palette.tertiary.main,
+            padding: theme.spacing(2),
+            borderColor: theme.palette.secondary.dark,
+            borderWidth: 2,
+            borderBottomStyle: 'solid',
+          }}
+        >
           <IconButton
             edge="start"
             color="inherit"
@@ -86,20 +80,51 @@ const GFXFullPreview: React.FC<IGFXFullPreviewProps> = ({
           >
             <CloseIcon />
           </IconButton>
-          <div className={classes.titleContainer}>
-            <Typography className={classes.title}>{title}</Typography>
+          <Box
+            sx={{
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
+            <Typography
+              sx={{
+                textTransform: 'uppercase',
+                fontSize: 28,
+              }}
+            >
+              {title}
+            </Typography>
             {subtitle && (
-              <Typography className={classes.subtext}>{subtitle}</Typography>
+              <Typography
+                sx={{
+                  fontStyle: 'italic',
+                }}
+              >
+                {subtitle}
+              </Typography>
             )}
-          </div>
-        </div>
-        <div className={classes.imageContainer}>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            flex: '1 1 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 1,
+            '& > *': {
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+            },
+          }}
+        >
           {imageFileTypes.includes(fileType) && <img src={imageUrl} />}
           {videoFileTypes.includes(fileType) && (
             <video src={imageUrl} preload="auto" autoPlay={true} loop={true} />
           )}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Dialog>
   );
 };

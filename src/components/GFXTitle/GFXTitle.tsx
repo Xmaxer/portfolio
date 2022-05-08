@@ -1,27 +1,31 @@
-import React from "react";
-import { IGFXTitleProps } from "./interfaces";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import { Box, Typography } from '@mui/material';
+import React from 'react';
 
-export const useGFXTitleStyles = makeStyles(() => ({
-  title: {
-    fontSize: 28,
-  },
-  subtitle: {
-    fontStyle: "italic",
-  },
-}));
+export interface IGFXTitleProps {
+  title: string;
+  subtitle?: string;
+}
 
 const GFXTitle: React.FC<IGFXTitleProps> = ({ title, subtitle }) => {
-  const classes = useGFXTitleStyles();
-
   return (
-    <div>
-      <Typography className={classes.title}>{title}</Typography>
+    <Box>
+      <Typography
+        sx={{
+          fontSize: 28,
+        }}
+      >
+        {title}
+      </Typography>
       {subtitle && (
-        <Typography className={classes.subtitle}>{subtitle}</Typography>
+        <Typography
+          sx={{
+            fontStyle: 'italic',
+          }}
+        >
+          {subtitle}
+        </Typography>
       )}
-    </div>
+    </Box>
   );
 };
 

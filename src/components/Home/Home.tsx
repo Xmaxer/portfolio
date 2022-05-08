@@ -1,50 +1,50 @@
-import React, { RefObject, useCallback, useContext, useRef } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { ParallaxContext } from "../../state/ParallaxContext";
-import Introduction from "../Introduction/Introduction";
-import Content from "../Content/Content";
-import Header from "../Header/Header";
-import useTabContext from "../../contexts/useTabContext";
-import { TabContext } from "../../contexts/TabContext";
+import { Box, useTheme } from '@mui/material';
+import React, { RefObject, useCallback, useContext, useRef } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    overflowY: "auto",
-    overflowX: "hidden",
-    maxHeight: "100vh",
-    minHeight: "100vh",
-    position: "relative",
-    backgroundColor: theme.palette.secondary.dark,
-  },
-}));
+import Content from '@component/Content/Content';
+import Header from '@component/Header/Header';
+import Introduction from '@component/Introduction/Introduction';
+
+import useTabContext from '@hook/useTabContext';
+
+import { ParallaxContext } from '@context/ParallaxContext';
+import { TabContext } from '@context/TabContext';
 
 export interface IHomeProps {}
 
 const Home: React.FC<IHomeProps> = ({}) => {
-  const classes = useStyles();
   const { setPosition } = useContext(ParallaxContext);
   const rootRef: RefObject<HTMLDivElement> | null = useRef(null);
   const tabContext = useTabContext();
+  const theme = useTheme();
 
   const trackScrollPosition = useCallback(
     (position: number) => {
+      console.log(position);
       setPosition(position);
     },
-    [setPosition]
+    [setPosition],
   );
 
   return (
     <TabContext.Provider value={tabContext}>
-      <div
-        className={classes.root}
+      <Box
+        sx={{
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          maxHeight: '100vh',
+          minHeight: '100vh',
+          position: 'relative',
+          backgroundColor: theme.palette.secondary.dark,
+        }}
         onScroll={(e) => trackScrollPosition(e.currentTarget.scrollTop)}
         ref={rootRef}
-        id={"home"}
+        id={'home'}
       >
         <Header />
         <Introduction />
         <Content />
-      </div>
+      </Box>
     </TabContext.Provider>
   );
 };

@@ -1,49 +1,43 @@
-import React, { RefObject, useCallback, useEffect, useRef } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import TabContent from "../TabContent/TabContent";
-import About from "../About/About";
-import ProgrammingProjects from "../ProgrammingProjects/ProgrammingProjects";
-import GFXProjects from "../GFXProjects/GFXProjects";
-import { useHistory } from "react-router";
-import { useGA4React } from "ga-4-react";
+import { Box } from '@mui/material';
+import { useGA4React } from 'ga-4-react';
+import React, { RefObject, useCallback, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginTop: "calc(100vh - (50vh + 60px + 136px + 20px) + 32px)",
-  },
-}));
+import About from '@component/About/About';
+import GFXProjects from '@component/GFXProjects/GFXProjects';
+import ProgrammingProjects from '@component/ProgrammingProjects/ProgrammingProjects';
+import TabContent from '@component/TabContent/TabContent';
 
 export interface IContentProps {}
 
 const Content: React.FC<IContentProps> = ({}) => {
-  const classes = useStyles();
-  const history = useHistory();
+  const location = useLocation();
   const ga = useGA4React();
   const rootRef: RefObject<HTMLDivElement> | null = useRef(null);
 
   const track = useCallback(
     (label: string) => {
       if (ga) {
-        ga.event("click", label, "Navigation", false);
+        ga.event('click', label, 'Navigation', false);
       }
     },
-    [ga]
+    [ga],
   );
 
   useEffect(() => {
     if (rootRef && rootRef.current) {
       const position = rootRef.current.offsetTop / 3;
-      const home = document.getElementById("home");
-      track(history.location.hash);
+      const home = document.getElementById('home');
+      track(location.hash);
       let documentTitle;
-      switch (history.location.hash.replace("#", "")) {
-        case "programming":
+      switch (location.hash.replace('#', '')) {
+        case 'programming':
           documentTitle = "Kevin's Programming Projects";
           break;
-        case "gfx":
+        case 'gfx':
           documentTitle = "Kevin's 3D Projects";
           break;
-        case "about":
+        case 'about':
           documentTitle = "Kevin's Experience";
           break;
         default:
@@ -54,13 +48,18 @@ const Content: React.FC<IContentProps> = ({}) => {
       }
 
       if (home) {
-        home.scrollTo({ top: position, behavior: "smooth" });
+        home.scrollTo({ top: position, behavior: 'smooth' });
       }
     }
-  }, [history.location.hash, track]);
+  }, [location.hash, track]);
 
   return (
-    <div className={classes.root} ref={rootRef}>
+    <Box
+      sx={{
+        marginTop: 'calc(100vh - (50vh + 60px + 136px + 20px) + 32px)',
+      }}
+      ref={rootRef}
+    >
       <TabContent value={0}>
         <About />
       </TabContent>
@@ -70,7 +69,7 @@ const Content: React.FC<IContentProps> = ({}) => {
       <TabContent value={2}>
         <GFXProjects />
       </TabContent>
-    </div>
+    </Box>
   );
 };
 

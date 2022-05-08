@@ -1,30 +1,17 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { Dehaze } from '@mui/icons-material';
 import {
+  Box,
   IconButton,
   List,
-  ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
   SwipeableDrawer,
-} from "@material-ui/core";
-import { Dehaze } from "@material-ui/icons";
-import { headerItems } from "../Header";
-import clsx from "clsx";
+  useTheme,
+} from '@mui/material';
+import React, { useState } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  listItem: {},
-  listItemSelected: {
-    "& *": {
-      color: theme.palette.tertiary.main,
-    },
-  },
-  drawerButton: {
-    color: theme.palette.primary.light,
-    marginRight: "auto",
-  },
-}));
+import { headerItems } from '@component/Header/Header';
 
 export interface IDrawerProps {
   onChange: (newValue: number) => void;
@@ -32,8 +19,8 @@ export interface IDrawerProps {
 }
 
 const Drawer: React.FC<IDrawerProps> = ({ onChange, selected }) => {
-  const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
 
   const onClickHandler = (newValue: number) => {
     setOpen(false);
@@ -44,36 +31,43 @@ const Drawer: React.FC<IDrawerProps> = ({ onChange, selected }) => {
     <>
       <IconButton
         onClick={() => setOpen(true)}
-        className={classes.drawerButton}
+        sx={{
+          color: theme.palette.primary.light,
+          marginRight: 'auto',
+        }}
       >
         <Dehaze />
       </IconButton>
       <SwipeableDrawer
-        anchor={"left"}
+        anchor={'left'}
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
       >
-        <div className={classes.root}>
+        <Box>
           <List>
             {headerItems.map((item, index) => {
               return (
-                <ListItem
-                  button
+                <ListItemButton
                   key={`drawer-item-${index}`}
                   onClick={() => onClickHandler(index)}
-                  className={clsx(
-                    classes.listItem,
-                    index === selected && classes.listItemSelected
-                  )}
+                  sx={
+                    index === selected
+                      ? {
+                          '& *': {
+                            color: theme.palette.tertiary.main,
+                          },
+                        }
+                      : {}
+                  }
                 >
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.label} />
-                </ListItem>
+                </ListItemButton>
               );
             })}
           </List>
-        </div>
+        </Box>
       </SwipeableDrawer>
     </>
   );
