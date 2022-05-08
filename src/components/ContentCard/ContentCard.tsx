@@ -44,7 +44,7 @@ const ContentCard: React.FC<IContentCardProps> = ({
             marginBottom: theme.spacing(4),
             textAlign: 'center',
             width: '100%',
-            backgroundColor: theme.palette.tertiary.main,
+            backgroundColor: theme.palette.tertiary.dark,
             padding: theme.spacing(2),
             borderColor: theme.palette.secondary.dark,
             borderWidth: 2,

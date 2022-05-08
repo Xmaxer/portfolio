@@ -1,4 +1,4 @@
-import { createTheme, PaletteColorOptions, PaletteColor } from '@mui/material';
+import { createTheme, PaletteColor, PaletteColorOptions } from '@mui/material';
 
 const palette = {
   primary: {
@@ -22,11 +22,11 @@ const palette = {
 };
 
 declare module '@mui/material/styles/createPalette' {
-  export interface Palette {
+  interface Palette {
     tertiary: PaletteColor;
   }
 
-  export interface PaletteOptions {
+  interface PaletteOptions {
     tertiary?: PaletteColorOptions;
   }
 }

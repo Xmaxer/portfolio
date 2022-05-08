@@ -20,7 +20,6 @@ const Home: React.FC<IHomeProps> = ({}) => {
 
   const trackScrollPosition = useCallback(
     (position: number) => {
-      console.log(position);
       setPosition(position);
     },
     [setPosition],

@@ -1,29 +1,15 @@
 import { Email, GitHub, LinkedIn } from '@mui/icons-material';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { useGA4React } from 'ga-4-react';
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { AwsConfig } from '@src/initAws';
 
-import { ParallaxContext } from '@context/ParallaxContext';
-
 export interface IHeaderProps {}
-
-function normalize(a: number, min: number, max: number) {
-  if (a >= max) {
-    return 1;
-  } else if (a <= min) {
-    return 0;
-  } else {
-    return (a - min) / (max - min);
-  }
-}
 
 const Introduction: React.FC<IHeaderProps> = () => {
   const ga = useGA4React();
-  const { position } = useContext(ParallaxContext);
   const theme = useTheme();
-
   const track = (label: string) => {
     if (ga) {
       ga.event('click', label, 'Personal info interest', false);
@@ -38,10 +24,6 @@ const Introduction: React.FC<IHeaderProps> = () => {
           alignItems: 'center',
           justifyContent: 'center',
           marginTop: theme.spacing(4),
-          opacity: () => {
-            const multiplier = normalize(position, 0, 200);
-            return 1 - multiplier;
-          },
         }}
       >
         <Box
@@ -52,14 +34,8 @@ const Introduction: React.FC<IHeaderProps> = () => {
             borderRadius: '50%',
             border: '3px solid ' + theme.palette.primary.light,
             overflow: 'hidden',
-            width: () => {
-              const multiplier = normalize(position, 0, 200);
-              return 200 - 200 * multiplier;
-            },
-            height: () => {
-              const multiplier = normalize(position, 0, 200);
-              return 200 - 200 * multiplier;
-            },
+            width: '200px',
+            height: '200px',
           }}
         >
           <img
@@ -117,18 +93,14 @@ const Introduction: React.FC<IHeaderProps> = () => {
           marginBottom: theme.spacing(4),
         }}
       >
-        <Typography
+        <Box
           sx={{
-            color: 'white',
             textAlign: 'center',
-            fontWeight: 'bold',
-            fontSize: () => {
-              const multiplier = normalize(position, 0, 200);
-              return 24 - 24 * multiplier;
-            },
-            opacity: () => {
-              const multiplier = normalize(position, 0, 200);
-              return 1 - multiplier;
+            '& > *': {
+              marginTop: theme.spacing(4),
+              fontSize: 24,
+              fontWeight: 'bold',
+              width: '100%',
             },
           }}
         >
@@ -136,6 +108,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
             sx={{
               color: theme.palette.primary.light,
             }}
+            component={'span'}
           >
             {'A constantly evolving full stack developer & 3D designer.'}
           </Typography>
@@ -144,6 +117,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
             sx={{
               color: theme.palette.tertiary.main,
             }}
+            component={'span'}
           >
             {'First class BSc in Software Development.'}
           </Typography>
@@ -153,10 +127,11 @@ const Introduction: React.FC<IHeaderProps> = () => {
             sx={{
               color: theme.palette.primary.light,
             }}
+            component={'span'}
           >
             {'Full time Software Engineer.'}
           </Typography>
-        </Typography>
+        </Box>
       </Box>
       <Box
         sx={{

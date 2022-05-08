@@ -74,7 +74,7 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
             marginLeft: theme.spacing(2),
             marginTop: theme.spacing(2),
           },
-          '& > *:first-child': {
+          '& > *:first-of-type': {
             marginLeft: 0,
           },
         }}
@@ -107,6 +107,7 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
                 key={img + index}
               >
                 <img
+                  alt={'thumbnail' + index}
                   style={{
                     width: 'auto',
                     height: '100%',

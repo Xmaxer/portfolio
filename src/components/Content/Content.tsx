@@ -26,7 +26,7 @@ const Content: React.FC<IContentProps> = ({}) => {
 
   useEffect(() => {
     if (rootRef && rootRef.current) {
-      const position = rootRef.current.offsetTop / 3;
+      const position = rootRef.current.offsetTop / 2;
       const home = document.getElementById('home');
       track(location.hash);
       let documentTitle;

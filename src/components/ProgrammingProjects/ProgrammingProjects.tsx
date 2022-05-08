@@ -18,7 +18,7 @@ const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
         '& > *': {
           marginTop: theme.spacing(4),
         },
-        '& > *:first-child': {
+        '& > *:first-of-type': {
           marginTop: 0,
         },
       }}
