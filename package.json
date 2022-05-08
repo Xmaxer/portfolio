@@ -6,8 +6,7 @@
   "scripts": {
     "build": "craco build",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0 --fix && prettier --write . && git add .",
-    "lint:ci": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
-    "prettier:ci": "prettier --check .",
+    "lint:ci": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0 && prettier --check .",
     "start": "craco start",
     "typescript": "tsc"
   },
