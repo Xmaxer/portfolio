@@ -25,6 +25,12 @@ export const TECHNOLOGIES: ITechnology[] = [
     id: 'androidstudio',
   },
   {
+    filename: 'react-native.svg',
+    link: 'https://reactnative.dev/',
+    title: 'React Native',
+    id: 'reactnative',
+  },
+  {
     filename: 'arduino.svg',
     link: 'https://www.arduino.cc/',
     title: 'Arduino',
@@ -73,10 +79,10 @@ export const TECHNOLOGIES: ITechnology[] = [
     id: 'eslint',
   },
   {
-    filename: 'firestore.svg',
-    link: 'https://firebase.google.com/brand-guidelines',
-    title: 'Firestore',
-    id: 'firestore',
+    filename: 'firebase.svg',
+    link: 'https://firebase.google.com',
+    title: 'Firebase',
+    id: 'firebase',
   },
   {
     filename: 'git.svg',
@@ -156,6 +162,12 @@ export const TECHNOLOGIES: ITechnology[] = [
     link: 'https://www.mongodb.com/',
     title: 'MongoDB',
     id: 'mongodb',
+  },
+  {
+    filename: 'neo4j.svg',
+    link: 'https://neo4j.com/',
+    title: 'neo4j',
+    id: 'neo4j',
   },
   {
     filename: 'mui.svg',

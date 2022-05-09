@@ -70,6 +70,7 @@ const About: React.FC<IAboutProps> = ({}) => {
             marginTop: 'auto',
             flexWrap: 'wrap',
             paddingBottom: theme.spacing(4),
+            marginRight: theme.spacing(2),
             '& img': {
               height: 40,
               marginTop: theme.spacing(3),

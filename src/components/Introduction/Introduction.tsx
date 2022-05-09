@@ -41,13 +41,13 @@ const Introduction: React.FC<IHeaderProps> = () => {
           <img
             alt={'profile'}
             style={{
-              transform: 'rotate(-90deg)',
               width: 'auto',
               height: '100%',
+              transform: 'scale(2) translate(-15px, 15px)',
             }}
             src={
               AwsConfig.THUMBNAIL_BASE_URL +
-              'profile/profile_1_thumbnail_400px.jpg'
+              'profile/profile_2_thumbnail_600px.jpg'
             }
           />
         </Box>

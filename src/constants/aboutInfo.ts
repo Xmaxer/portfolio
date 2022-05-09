@@ -9,7 +9,7 @@ export const ABOUT_INFO: IAboutObject[] = [
     title: 'Full time Software Engineer @ Poppulo',
     context: 'present',
     content:
-      'Currently employed at Poppulo as a full-stack software engineer. My work mostly consists of AWS infrastructure, and mobile app development (React native), as well as a monolith Java/AngularJS application.',
+      'Currently employed at Poppulo as a full-stack software engineer. My work mostly consists of AWS infrastructure, and mobile app development (React native), GraphQL API development, as well as a monolith Java/AngularJS application.',
   },
   {
     title: 'Full time Software Engineer @ Pilz',

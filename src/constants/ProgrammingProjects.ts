@@ -46,25 +46,25 @@ export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
     ]),
   },
   {
-    title: 'Common Components',
+    title: 'Small utility libraries (Logger, Baseline code)',
     wip: true,
     projectLinks: [
       projectLink(
-        'Common components',
-        'https://github.com/Xmaxer/common-components/tree/develop',
+        'Baseline',
+        'https://www.npmjs.com/package/@baselinecode/baseline',
+        Language,
+      ),
+      projectLink(
+        'Logger',
+        'https://www.npmjs.com/package/@baselinecode/logger',
+        Language,
       ),
     ],
     content:
-      'A common components library based on Material UI. Built with the same principles in mind, with the purpose of extending components to build more specialized, higher (and lower) level components for internal and external projects.',
-    technologies: technologies([
-      'typescript',
-      'javascript',
-      'react',
-      'eslint',
-      'mui',
-      'jest',
-    ]),
+      'Two libraries. @baselinecode/logger is for simple pretty logging. @baselinecode/baseline is to standardise code via ESLint, Prettier, and TS.',
+    technologies: technologies(['typescript', 'javascript', 'eslint']),
   },
+
   {
     title: 'OS Society Player Management',
     wip: true,
@@ -92,6 +92,26 @@ export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
       'graphql',
       'travis',
       'postgresql',
+    ]),
+  },
+  {
+    title: 'Common Components',
+    wip: true,
+    projectLinks: [
+      projectLink(
+        'Common components',
+        'https://github.com/Xmaxer/common-components/tree/develop',
+      ),
+    ],
+    content:
+      'A common components library based on Material UI. Built with the same principles in mind, with the purpose of extending components to build more specialized, higher (and lower) level components for internal and external projects.',
+    technologies: technologies([
+      'typescript',
+      'javascript',
+      'react',
+      'eslint',
+      'mui',
+      'jest',
     ]),
   },
   {
