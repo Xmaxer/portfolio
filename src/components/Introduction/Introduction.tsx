@@ -195,7 +195,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
                 '0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black',
             },
           }}
-          href={'mailto:contactkevinjakubauskas@gmail.com'}
+          href={'mailto:contact@kevinjakubauskas.com'}
           target={'_blank'}
           onClick={() => track('Personal Email')}
         >
