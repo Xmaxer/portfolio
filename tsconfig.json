@@ -1,24 +1,36 @@
 {
-  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext", "es6"],
+    "baseUrl": "./src",
+    "paths": {
+      "@component/*": ["components/*"],
+      "@util/*": ["utils/*"],
+      "@hook/*": ["hooks/*"],
+      "@asset/*": ["assets/*"],
+      "@constant/*": ["constants/*"],
+      "@context/*": ["contexts/*"],
+      "@src/*": ["*"]
+    },
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "module": "node16",
+    "moduleResolution": "node16",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "noFallthroughCasesInSwitch": true
+    "maxNodeModuleJsDepth": 10
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

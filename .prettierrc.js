@@ -3,6 +3,7 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'all',
   importOrder: [
+    '<THIRD_PARTY_MODULES>',
     '^[./]',
     '^@src(.*)$',
     '^@component(.*)$',
