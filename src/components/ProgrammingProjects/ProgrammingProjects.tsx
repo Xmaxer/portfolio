@@ -1,15 +1,15 @@
 import { Box, useTheme } from '@mui/material';
 import React from 'react';
 
-import ContentCard from '@component/ContentCard/ContentCard';
-import ProgrammingCard from '@component/ProgrammingCard/ProgrammingCard';
-import Subtext from '@component/ProgrammingCard/Subtext/Subtext';
+import ContentCard from '@components/ContentCard/ContentCard.js';
+import ProgrammingCard from '@components/ProgrammingCard/ProgrammingCard.js';
+import Subtext from '@components/ProgrammingCard/Subtext/Subtext.js';
 
-import { PROGRAMMING_PROJECTS } from '@constant/ProgrammingProjects';
+import { PROGRAMMING_PROJECTS } from '@constants/ProgrammingProjects.js';
 
 export interface IProgrammingProjectsProps {}
 
-const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = ({}) => {
+const ProgrammingProjects: React.FC<IProgrammingProjectsProps> = () => {
   const theme = useTheme();
 
   return (

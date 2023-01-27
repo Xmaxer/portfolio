@@ -1,38 +1,39 @@
-import { Code, GraphicEq, Person } from '@mui/icons-material';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
-import React, { useContext, useEffect } from 'react';
+import { TAB_CONTEXT_SET_SELECTED_TAB_ACTION } from '@providers/contexts/tab/reducer.js';
+import React, { useEffect } from 'react';
+import { BsCodeSlash, BsPersonFill, MdGraphicEq } from 'react-icons/all.js';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import Drawer from './Drawer/Drawer';
-import Tabs from './Tabs/Tabs';
+import Drawer from '@components/Header/Drawer/Drawer.js';
+import Tabs from '@components/Header/Tabs/Tabs.js';
 
-import { TabContext } from '@context/TabContext';
+import useTabContext from '@hooks/context/useTabContext.js';
 
 export const headerItems = [
   {
     label: 'About me',
     href: '#about',
-    icon: <Person />,
+    icon: <BsPersonFill />,
   },
   {
     label: 'Programming Projects',
     href: '#programming',
-    icon: <Code />,
+    icon: <BsCodeSlash />,
   },
   {
     label: '3D Projects',
     href: '#gfx',
-    icon: <GraphicEq />,
+    icon: <MdGraphicEq />,
   },
 ];
 
 export interface IHeaderProps {}
 
-const Header: React.FC<IHeaderProps> = ({}) => {
+const Header: React.FC<IHeaderProps> = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  const { setSelected, selected } = useContext(TabContext);
+  const [{ selectedTab }, dispatchTab] = useTabContext();
   const location = useLocation();
 
   useEffect(() => {
@@ -51,12 +52,18 @@ const Header: React.FC<IHeaderProps> = ({}) => {
           selected = 2;
           break;
       }
-      setSelected(selected);
+      dispatchTab({
+        type: TAB_CONTEXT_SET_SELECTED_TAB_ACTION,
+        selectedTab: selected,
+      });
     }
-  }, [location.hash, setSelected]);
+  }, [location.hash, dispatchTab]);
 
   const onChangeHandler = (newValue: number) => {
-    setSelected(newValue);
+    dispatchTab({
+      type: TAB_CONTEXT_SET_SELECTED_TAB_ACTION,
+      selectedTab: newValue,
+    });
     let anchor = 'about';
     switch (newValue) {
       case 1:
@@ -83,9 +90,9 @@ const Header: React.FC<IHeaderProps> = ({}) => {
       }}
     >
       {smallScreen ? (
-        <Drawer onChange={onChangeHandler} selected={selected} />
+        <Drawer onChange={onChangeHandler} selected={selectedTab} />
       ) : (
-        <Tabs onChange={onChangeHandler} selected={selected} />
+        <Tabs onChange={onChangeHandler} selected={selectedTab} />
       )}
     </Box>
   );

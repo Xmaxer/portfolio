@@ -1,15 +1,15 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import React, { memo } from 'react';
 
-import ContentCard from '../ContentCard/ContentCard';
-import GFXCard from '../GFXCard/GFXCard';
-import GFXTitle from '../GFXTitle/GFXTitle';
+import ContentCard from '@components/ContentCard/ContentCard.js';
+import GFXCard from '@components/GFXCard/GFXCard.js';
+import GFXTitle from '@components/GFXTitle/GFXTitle.js';
 
-import { PROJECTS_3D } from '@constant/3DProjects';
+import { PROJECTS_3D } from '@constants/3DProjects.js';
 
 export interface IGFXProjectsProps {}
 
-const GFXProjects: React.FC<IGFXProjectsProps> = ({}) => {
+const GFXProjects: React.FC<IGFXProjectsProps> = () => {
   const theme = useTheme();
   return (
     <Box

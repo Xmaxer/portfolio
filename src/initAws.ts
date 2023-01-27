@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 
-import { FULL_SIZE_BUCKET, THUMBNAIL_BUCKET } from '@constant/constants';
+import { FULL_SIZE_BUCKET, THUMBNAIL_BUCKET } from '@constants/constants.js';
 
 export class AwsConfig {
   static THUMBNAIL_BASE_URL = '';

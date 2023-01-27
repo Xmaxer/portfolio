@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { headerItems } from '@component/Header/Header';
-import HeaderTab from '@component/HeaderButton/HeaderTab';
-import HeaderTabs from '@component/HeaderTabs/HeaderTabs';
+import { headerItems } from '@components/Header/Header.js';
+import HeaderTab from '@components/HeaderButton/HeaderTab.js';
+import HeaderTabs from '@components/HeaderTabs/HeaderTabs.js';
 
 export interface ITabsProps {
   onChange: (newValue: number) => void;

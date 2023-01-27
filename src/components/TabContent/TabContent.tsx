@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { TabContext } from '@context/TabContext';
+import useTabContext from '@hooks/context/useTabContext.js';
 
 export interface ITabContentProps {
   value: number;
@@ -9,9 +9,9 @@ export interface ITabContentProps {
 }
 
 const TabContent: React.FC<ITabContentProps> = ({ value, children }) => {
-  const { selected } = useContext(TabContext);
+  const [{ selectedTab }] = useTabContext();
 
-  return selected === value ? <Box>{children}</Box> : null;
+  return selectedTab === value ? <Box>{children}</Box> : null;
 };
 
 export default TabContent;

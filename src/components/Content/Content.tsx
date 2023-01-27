@@ -3,14 +3,14 @@ import { useGA4React } from 'ga-4-react';
 import React, { RefObject, useCallback, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import About from '@component/About/About';
-import GFXProjects from '@component/GFXProjects/GFXProjects';
-import ProgrammingProjects from '@component/ProgrammingProjects/ProgrammingProjects';
-import TabContent from '@component/TabContent/TabContent';
+import About from '@components/About/About.js';
+import GFXProjects from '@components/GFXProjects/GFXProjects.js';
+import ProgrammingProjects from '@components/ProgrammingProjects/ProgrammingProjects.js';
+import TabContent from '@components/TabContent/TabContent.js';
 
 export interface IContentProps {}
 
-const Content: React.FC<IContentProps> = ({}) => {
+const Content: React.FC<IContentProps> = () => {
   const location = useLocation();
   const ga = useGA4React();
   const rootRef: RefObject<HTMLDivElement> | null = useRef(null);

@@ -1,7 +1,7 @@
-import { GitHub } from '@mui/icons-material';
 import { Box, IconButton, Tooltip, Typography, useTheme } from '@mui/material';
 import { useGA4React } from 'ga-4-react';
 import React from 'react';
+import { FaGithub } from 'react-icons/all.js';
 
 export interface IProjectLink {
   title: string;
@@ -74,7 +74,7 @@ const ProgrammingCard: React.FC<IProgrammingCardProps> = ({
                     target={'_blank'}
                     onClick={() => track(projectLink.title)}
                   >
-                    {CustomIcon ? <CustomIcon /> : <GitHub />}
+                    {CustomIcon ? <CustomIcon /> : <FaGithub />}
                   </IconButton>
                 </Tooltip>
               );

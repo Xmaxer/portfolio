@@ -26,3 +26,5 @@ yarn-error.log*
 debug.log
 
 .env*
+
+dist

@@ -1,9 +1,9 @@
-import { Language } from '@mui/icons-material';
 import React from 'react';
+import { GrLanguage } from 'react-icons/all.js';
 
-import { IProjectLink } from '@component/ProgrammingCard/ProgrammingCard';
+import { IProjectLink } from '@components/ProgrammingCard/ProgrammingCard.js';
 
-import { ITechnology, TECHNOLOGIES } from '@constant/technologies';
+import { ITechnology, TECHNOLOGIES } from '@constants/technologies.js';
 
 export interface IProgrammingProject {
   content: string;
@@ -28,6 +28,7 @@ function projectLink(
 function technologies(ids: string[]): ITechnology[] {
   return TECHNOLOGIES.filter((technology) => ids.includes(technology.id));
 }
+
 export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
   {
     title: 'This Website!',
@@ -52,12 +53,12 @@ export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
       projectLink(
         'Baseline',
         'https://www.npmjs.com/package/@baselinecode/baseline',
-        Language,
+        GrLanguage,
       ),
       projectLink(
         'Logger',
         'https://www.npmjs.com/package/@baselinecode/logger',
-        Language,
+        GrLanguage,
       ),
     ],
     content:
@@ -157,7 +158,7 @@ export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
       projectLink(
         'Itch.io project',
         'https://xmaxer.itch.io/infinity',
-        Language,
+        GrLanguage,
       ),
     ],
     content:

@@ -1,9 +1,9 @@
-import { Email, GitHub, LinkedIn } from '@mui/icons-material';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { useGA4React } from 'ga-4-react';
 import React from 'react';
+import { FaGithub, FaLinkedin, FiMail } from 'react-icons/all.js';
 
-import { AwsConfig } from '@src/initAws';
+import { AwsConfig } from '@src/initAws.js';
 
 export interface IHeaderProps {}
 
@@ -169,7 +169,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           target={'_blank'}
           onClick={() => track('Personal Github')}
         >
-          <LinkedIn />
+          <FaLinkedin />
         </IconButton>
         <IconButton
           sx={{
@@ -184,7 +184,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           target={'_blank'}
           onClick={() => track('Personal Linkedin')}
         >
-          <GitHub />
+          <FaGithub />
         </IconButton>
         <IconButton
           sx={{
@@ -199,7 +199,7 @@ const Introduction: React.FC<IHeaderProps> = () => {
           target={'_blank'}
           onClick={() => track('Personal Email')}
         >
-          <Email />
+          <FiMail />
         </IconButton>
       </Box>
     </>

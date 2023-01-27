@@ -1,11 +1,11 @@
 import { useGA4React } from 'ga-4-react';
 import { BrowserHistory, createBrowserHistory } from 'history';
 import React, { useLayoutEffect, useState } from 'react';
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-import Home from './components/Home/Home';
+import Home from '@components/Home/Home.js';
 
-const history = createBrowserHistory();
+const browserHistory = createBrowserHistory();
 
 export interface IAppRouterProps {}
 
@@ -37,21 +37,12 @@ const CustomRouter: React.FC<ICustomRouterProps> = ({ history, ...rest }) => {
     [ga, history],
   );
 
-  return (
-    <Router
-      {...rest}
-      location={state.location}
-      navigationType={state.action}
-      navigator={history}
-    />
-  );
+  return <Routes {...rest} location={state.location} />;
 };
-const AppRouter: React.FC<IAppRouterProps> = ({}) => {
+const AppRouter: React.FC<IAppRouterProps> = () => {
   return (
-    <CustomRouter history={history}>
-      <Routes>
-        <Route path={'/'} element={<Home />} />
-      </Routes>
+    <CustomRouter history={browserHistory}>
+      <Route path={'/'} element={<Home />} />
     </CustomRouter>
   );
 };

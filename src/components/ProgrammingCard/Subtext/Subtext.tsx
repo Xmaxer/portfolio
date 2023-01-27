@@ -2,11 +2,12 @@ import { Box, Tooltip, Typography, useTheme } from '@mui/material';
 import { useGA4React } from 'ga-4-react';
 import React from 'react';
 
-import { ITechnology } from '@constant/technologies';
+import { ITechnology } from '@constants/technologies.js';
 
 export interface ISubtextProps {
   technologies: ITechnology[];
 }
+
 const Subtext: React.FC<ISubtextProps> = ({ technologies }) => {
   const ga = useGA4React();
   const theme = useTheme();
@@ -65,7 +66,8 @@ const Subtext: React.FC<ISubtextProps> = ({ technologies }) => {
               >
                 <img
                   src={
-                    process.env.PUBLIC_URL + '/images/' + technology.filename
+                    new URL('/images/' + technology.filename, import.meta.url)
+                      .href
                   }
                   alt={technology.title}
                   id={`${technology.title

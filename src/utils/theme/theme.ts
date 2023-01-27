@@ -21,7 +21,7 @@ const palette = {
   info: '#00b8ff',
 };
 
-declare module '@mui/material/styles/createPalette' {
+declare module '@mui/material/styles/createPalette.js' {
   interface Palette {
     tertiary: PaletteColor;
   }

@@ -1,4 +1,3 @@
-import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
   Dialog,
@@ -9,8 +8,9 @@ import {
 } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import React from 'react';
+import { VscClose } from 'react-icons/all.js';
 
-import { imageFileTypes, videoFileTypes } from '@constant/constants';
+import { imageFileTypes, videoFileTypes } from '@constants/constants.js';
 
 export interface IGFXFullPreviewProps {
   open: boolean;
@@ -78,7 +78,7 @@ const GFXFullPreview: React.FC<IGFXFullPreviewProps> = ({
             onClick={onClose}
             aria-label="close"
           >
-            <CloseIcon />
+            <VscClose />
           </IconButton>
           <Box
             sx={{

@@ -1,4 +1,3 @@
-import { Dehaze } from '@mui/icons-material';
 import {
   Box,
   IconButton,
@@ -10,8 +9,9 @@ import {
   useTheme,
 } from '@mui/material';
 import React, { useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/all.js';
 
-import { headerItems } from '@component/Header/Header';
+import { headerItems } from '@components/Header/Header.js';
 
 export interface IDrawerProps {
   onChange: (newValue: number) => void;
@@ -36,7 +36,7 @@ const Drawer: React.FC<IDrawerProps> = ({ onChange, selected }) => {
           marginRight: 'auto',
         }}
       >
-        <Dehaze />
+        <GiHamburgerMenu />
       </IconButton>
       <SwipeableDrawer
         anchor={'left'}

@@ -2,14 +2,14 @@ import { Box, Divider, Tooltip, Typography, useTheme } from '@mui/material';
 import { useGA4React } from 'ga-4-react';
 import React from 'react';
 
-import ContentCard from '@component/ContentCard/ContentCard';
+import ContentCard from '@components/ContentCard/ContentCard.js';
 
-import { ABOUT_INFO } from '@constant/aboutInfo';
-import { TECHNOLOGIES } from '@constant/technologies';
+import { ABOUT_INFO } from '@constants/aboutInfo.js';
+import { TECHNOLOGIES } from '@constants/technologies.js';
 
 export interface IAboutProps {}
 
-const About: React.FC<IAboutProps> = ({}) => {
+const About: React.FC<IAboutProps> = () => {
   const theme = useTheme();
 
   const ga = useGA4React();
@@ -105,7 +105,8 @@ const About: React.FC<IAboutProps> = ({}) => {
                 >
                   <img
                     src={
-                      process.env.PUBLIC_URL + '/images/' + technology.filename
+                      new URL('/images/' + technology.filename, import.meta.url)
+                        .href
                     }
                     alt={technology.title}
                     id={`${technology.title

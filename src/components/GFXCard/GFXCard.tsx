@@ -2,12 +2,12 @@ import { Box, useTheme } from '@mui/material';
 import { useGA4React } from 'ga-4-react';
 import React from 'react';
 
-import GFXFullPreview from '../GFXFullPreview/GFXFullPreview';
+import { AwsConfig } from '@src/initAws.js';
 
-import { AwsConfig } from '@src/initAws';
+import GFXFullPreview from '@components/GFXFullPreview/GFXFullPreview.js';
 
-import { IProjectType } from '@constant/3DProjects';
-import { imageFileTypes, videoFileTypes } from '@constant/constants';
+import { IProjectType } from '@constants/3DProjects.js';
+import { imageFileTypes, videoFileTypes } from '@constants/constants.js';
 
 export interface IGFXCardProps extends IProjectType {}
 
@@ -121,7 +121,7 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
             );
           } else if (videoFileTypes.includes(fileType)) {
             return (
-              <Box>
+              <Box key={img + index}>
                 <Box
                   sx={{
                     height: 200,
@@ -141,7 +141,6 @@ const GFXCard: React.FC<IGFXCardProps> = (props) => {
                       border: '2px solid ' + theme.palette.tertiary.main,
                     },
                   }}
-                  key={img + index}
                 >
                   <video
                     src={AwsConfig.THUMBNAIL_BASE_URL + img}

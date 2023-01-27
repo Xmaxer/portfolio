@@ -2,12 +2,13 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@component/*": ["components/*"],
-      "@util/*": ["utils/*"],
-      "@hook/*": ["hooks/*"],
-      "@asset/*": ["assets/*"],
-      "@constant/*": ["constants/*"],
-      "@context/*": ["contexts/*"],
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["hooks/*"],
+      "@assets/*": ["assets/*"],
+      "@constants/*": ["constants/*"],
+      "@contexts/*": ["contexts/*"],
+      "@providers/*": ["providers/*"],
       "@src/*": ["*"]
     },
     "target": "ESNext",
