@@ -10,6 +10,7 @@ export default defineConfig({
     global: 'window',
   },
   optimizeDeps: {
+    disabled: false,
     esbuildOptions: {
       resolveExtensions: [
         '.web.js',
@@ -45,6 +46,7 @@ export default defineConfig({
   build: {
     commonjsOptions: {
       transformMixedEsModules: true,
+      include: [],
     },
   },
 });

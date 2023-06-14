@@ -131,7 +131,13 @@ const ContentCard: React.FC<IContentCardProps> = ({
             }}
           >
             {typeof content === 'string' ? (
-              <Typography>{content}</Typography>
+              <Typography
+                sx={{
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                {content}
+              </Typography>
             ) : (
               content
             )}

@@ -31,6 +31,18 @@ export const TECHNOLOGIES: ITechnology[] = [
     id: 'reactnative',
   },
   {
+    filename: 'redis.svg',
+    link: 'https://redis.io/',
+    title: 'Redis',
+    id: 'redis',
+  },
+  {
+    filename: 'vite.svg',
+    link: 'https://vitejs.dev/',
+    title: 'Vite',
+    id: 'vite',
+  },
+  {
     filename: 'arduino.svg',
     link: 'https://www.arduino.cc/',
     title: 'Arduino',

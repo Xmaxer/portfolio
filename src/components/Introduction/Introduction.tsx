@@ -159,11 +159,9 @@ const Introduction: React.FC<IHeaderProps> = () => {
         <IconButton
           sx={{
             color: 'white',
-            '& .MuiSvgIcon-root': {
-              fontSize: 40,
-              textShadow:
-                '0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black',
-            },
+            fontSize: 40,
+            textShadow:
+              '0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black',
           }}
           href={'https://www.linkedin.com/in/kevin-jakubauskas/'}
           target={'_blank'}
@@ -174,11 +172,9 @@ const Introduction: React.FC<IHeaderProps> = () => {
         <IconButton
           sx={{
             color: 'white',
-            '& .MuiSvgIcon-root': {
-              fontSize: 40,
-              textShadow:
-                '0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black',
-            },
+            fontSize: 40,
+            textShadow:
+              '0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black',
           }}
           href={'https://github.com/Xmaxer?tab=repositories'}
           target={'_blank'}
@@ -188,12 +184,10 @@ const Introduction: React.FC<IHeaderProps> = () => {
         </IconButton>
         <IconButton
           sx={{
+            fontSize: 40,
+            textShadow:
+              '0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black',
             color: 'white',
-            '& .MuiSvgIcon-root': {
-              fontSize: 40,
-              textShadow:
-                '0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black',
-            },
           }}
           href={'mailto:contact@kevinjakubauskas.com'}
           target={'_blank'}

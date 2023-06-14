@@ -31,6 +31,35 @@ function technologies(ids: string[]): ITechnology[] {
 
 export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
   {
+    title: 'Gaming social media application',
+    wip: true,
+    projectLinks: [],
+    content: `I am currently working on a gaming social media mobile app using React Native with client-side synchronised caching, with plans for an accompanying web application in the near future. The application supports a full feed system including posts, infinite comment chains, reactions, and other social features such as adding friends, following and blocking users. It also supports creating and scheduling game related events, while allowing the user to review, rate and comment on any game.
+    
+    The backend consists of a vast GraphQL API, custom OAuth server, distributed Redis clusters, sharded MongoDB instances, and a robust social graph data store in Neo4J. I built a performant queue system, similar to AWS SNS/SQS, which delegates non-urgent tasks to separate microservices, with a full dead-letter queue implementation, as well as a retry mechanism. 
+      
+      Everything in this project was built by me, which was a great learning experience to understand how low level infrastructure is built.
+      
+      The project is closed source at the moment, but the application will be released in late 2023/early 2024 and has been worked on since early 2022.
+      `,
+    technologies: technologies([
+      'typescript',
+      'javascript',
+      'redis',
+      'mongodb',
+      'neo4j',
+      'nodejs',
+      'docker',
+      'graphql',
+      'grpc',
+      'reactnative',
+      'react',
+      'vite',
+      'eslint',
+      'mui',
+    ]),
+  },
+  {
     title: 'This Website!',
     wip: false,
     projectLinks: [
@@ -41,6 +70,7 @@ export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
     technologies: technologies([
       'typescript',
       'javascript',
+      'vite',
       'react',
       'eslint',
       'mui',
@@ -48,7 +78,7 @@ export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
   },
   {
     title: 'Small utility libraries (Logger, Baseline code)',
-    wip: true,
+    wip: false,
     projectLinks: [
       projectLink(
         'Baseline',
@@ -68,7 +98,7 @@ export const PROGRAMMING_PROJECTS: IProgrammingProject[] = [
 
   {
     title: 'OS Society Player Management',
-    wip: true,
+    wip: false,
     projectLinks: [
       projectLink(
         'Frontend project',
