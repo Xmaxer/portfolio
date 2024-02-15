@@ -6,10 +6,16 @@ export interface IAboutObject {
 
 export const ABOUT_INFO: IAboutObject[] = [
   {
-    title: 'Full time Software Engineer @ Poppulo',
+    title: 'Full time Software Engineer @ Globalization-Partners',
     context: 'present',
     content:
-      'Currently employed at Poppulo as a full-stack software engineer. My work mostly consists of AWS infrastructure, and mobile app development (React native), GraphQL API development, as well as a monolith Java/AngularJS application.',
+      'Continuing similar work to my previous role, in creating and managing AWS infrastructure, establishing frontend (ReactJS) standards, and developing the associated backend services.',
+  },
+  {
+    title: 'Full time Software Engineer @ Poppulo',
+    context: '2021-2023',
+    content:
+      'My work mostly consisted of a variety of AWS infrastructure, mobile app development (React native), GraphQL API development, as well as a monolith Java/AngularJS application.',
   },
   {
     title: 'Full time Software Engineer @ Pilz',
@@ -24,10 +30,10 @@ export const ABOUT_INFO: IAboutObject[] = [
       'I did an 8 month internship at Pilz, where I was put on a team and worked as a full stack developer, working on frontend, backend, CI/CD and everything in-between.',
   },
   {
-    title: 'BSc in Software Development @ CIT',
+    title: 'BSc in Software Development @ MTU',
     context: '2016-2020',
     content:
-      'I studied for 4 years at the Cork Institute of Technology, where I graduated with a BSc in Software Development with First Class Honours',
+      'I studied for 4 years at the Cork Institute of Technology (Now known as Munster Technological University), where I graduated with a BSc in Software Development with First Class Honours',
   },
   {
     title: 'Best math student award',
